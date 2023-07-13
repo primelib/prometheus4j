@@ -22,6 +22,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class CreateSnapshotOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Skip data present in the head block. Optional. 
@@ -37,7 +42,8 @@ public class CreateSnapshotOperationSpec {
     @ApiStatus.Internal
     public CreateSnapshotOperationSpec(Consumer<CreateSnapshotOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

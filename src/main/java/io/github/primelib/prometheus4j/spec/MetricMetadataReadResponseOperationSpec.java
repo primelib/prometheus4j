@@ -26,6 +26,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class MetricMetadataReadResponseOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Maximum number of metrics to return.
@@ -47,7 +52,8 @@ public class MetricMetadataReadResponseOperationSpec {
     @ApiStatus.Internal
     public MetricMetadataReadResponseOperationSpec(Consumer<MetricMetadataReadResponseOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

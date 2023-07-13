@@ -22,6 +22,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadTargetsOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * The "state" query parameter allows the caller to filter by active or dropped targets, (e.g., "state=active", "state=dropped", "state=any"). 
@@ -37,7 +42,8 @@ public class ReadTargetsOperationSpec {
     @ApiStatus.Internal
     public ReadTargetsOperationSpec(Consumer<ReadTargetsOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

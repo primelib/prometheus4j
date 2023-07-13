@@ -22,6 +22,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadRulesOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Return only the alerting rules (e.g. "type=alert") or the recording rules (e.g. "type=record"). When the parameter is absent or empty, no filtering is done. 
@@ -37,7 +42,8 @@ public class ReadRulesOperationSpec {
     @ApiStatus.Internal
     public ReadRulesOperationSpec(Consumer<ReadRulesOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

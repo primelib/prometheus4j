@@ -21,6 +21,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadServerConfigOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Constructs a validated implementation of {@link ReadServerConfigOperationSpec}.
@@ -30,7 +35,8 @@ public class ReadServerConfigOperationSpec {
     @ApiStatus.Internal
     public ReadServerConfigOperationSpec(Consumer<ReadServerConfigOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

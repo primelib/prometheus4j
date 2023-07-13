@@ -69,7 +69,7 @@ public class PrometheusHTTPSpecApi {
     /**
      * Creates Snapshot of current data
      * <p>
-     * Snapshot creates a snapshot of all current data into "snapshots/{datetime}-{rand}" under the TSDB's data directory and returns the directory as response. It will optionally skip snapshotting data that is only present in the head block, and which has not yet been compacted to disk. 
+     * Snapshot creates a snapshot of all current data into "snapshots/&amp;lt;datetime&amp;gt;-&amp;lt;rand&amp;gt;" under the TSDB's data directory and returns the directory as response. It will optionally skip snapshotting data that is only present in the head block, and which has not yet been compacted to disk. 
      * @param spec                 a consumer that takes a spec to prepare the request for execution
      */
     public SnapshotCreateResponse createSnapshot(Consumer<CreateSnapshotOperationSpec> spec) {
@@ -96,7 +96,7 @@ public class PrometheusHTTPSpecApi {
      * You can URL-encode these parameters directly in the request body by using the "POST" method and "Content-Type: application/x-www-form-urlencoded" header. This is useful when specifying a large query that may breach server-side URL character limits.
      * The data section of the query result has the following format " {
      *  "resultType": "matrix" | "vector" | "scalar" | "string",
-     *  "result": {value} } " "{value}" refers to the query result data, which has varying formats depending on the "resultType". See the [expression query result formats](https://prometheus.io/docs/prometheus/latest/querying/api/#expression-query-result-formats). 
+     *  "result": &amp;lt;value&amp;gt; } " "&amp;lt;value&amp;gt;" refers to the query result data, which has varying formats depending on the "resultType". See the [expression query result formats](https://prometheus.io/docs/prometheus/latest/querying/api/#expression-query-result-formats). 
      * @param spec                 a consumer that takes a spec to prepare the request for execution
      */
     public QueryDataReadResponse evaluateQueryInstant(Consumer<EvaluateQueryInstantOperationSpec> spec) {
@@ -111,7 +111,7 @@ public class PrometheusHTTPSpecApi {
      * You can URL-encode these parameters directly in the request body by using the "POST" method and "Content-Type: application/x-www-form-urlencoded" header. This is useful when specifying a large query that may breach server-side URL character limits.
      * The data section of the query result has the following format " {
      *  "resultType": "matrix",
-     *  "result": {value} } " For the format of the "{value}" placeholder, see the [range-vector result format](https://prometheus.io/docs/prometheus/latest/querying/api/#range-vectors). 
+     *  "result": &amp;lt;value&amp;gt; } " For the format of the "&amp;lt;value&amp;gt;" placeholder, see the [range-vector result format](https://prometheus.io/docs/prometheus/latest/querying/api/#range-vectors). 
      * @param spec                 a consumer that takes a spec to prepare the request for execution
      */
     public ResponseQueryRange evaluateQueryRange(Consumer<EvaluateQueryRangeOperationSpec> spec) {
@@ -182,7 +182,7 @@ public class PrometheusHTTPSpecApi {
     /**
      * Returns list of Exemplars
      * <p>
-     * This is {b}experimental{/b} and might change in the future. The following endpoint returns a list of exemplars for a valid PromQL query for a specific time range 
+     * This is &amp;lt;b&amp;gt;experimental&amp;lt;/b&amp;gt; and might change in the future. The following endpoint returns a list of exemplars for a valid PromQL query for a specific time range 
      * @param spec                 a consumer that takes a spec to prepare the request for execution
      */
     public QueryExemplarsReadResponse readQueryExemplars(Consumer<ReadQueryExemplarsOperationSpec> spec) {
@@ -269,7 +269,7 @@ public class PrometheusHTTPSpecApi {
      * <p>
      * The following endpoint returns various cardinality statistics about the Prometheus TSDB
      * Response Data ---
-     * **headStats:** This provides the following data about the head block of the TSDB: }**numSeries:** The number of series. **chunkCount:** The number of chunks. **minTime:** The current minimum timestamp in milliseconds. **maxTime:** The current maximum timestamp in milliseconds.
+     * **headStats:** This provides the following data about the head block of the TSDB: &amp;gt;**numSeries:** The number of series. **chunkCount:** The number of chunks. **minTime:** The current minimum timestamp in milliseconds. **maxTime:** The current maximum timestamp in milliseconds.
      * **seriesCountByMetricName:** This will provide a list of metrics names and their series count. **labelValueCountByLabelName:** This will provide a list of the label names and their value count. **memoryInBytesByLabelName:** This will provide a list of the label names and memory used in bytes. Memory usage is calculated by adding the length of all values for a given label name. **seriesCountByLabelPair:** This will provide a list of label value pairs and their series count. 
      * @param spec                 a consumer that takes a spec to prepare the request for execution
      */

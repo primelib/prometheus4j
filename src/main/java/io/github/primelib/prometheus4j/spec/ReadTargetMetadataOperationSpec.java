@@ -22,6 +22,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadTargetMetadataOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Label selectors that match targets by their label sets. All targets are selected if left empty. 
@@ -49,7 +54,8 @@ public class ReadTargetMetadataOperationSpec {
     @ApiStatus.Internal
     public ReadTargetMetadataOperationSpec(Consumer<ReadTargetMetadataOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

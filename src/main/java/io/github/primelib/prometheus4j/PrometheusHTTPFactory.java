@@ -4,11 +4,13 @@ import java.util.Map;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.prometheus4j.api.PrometheusHTTPApi;
+import io.github.primelib.prometheus4j.auth.AuthInterceptor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+
 import feign.Feign;
 import feign.Logger;
 import feign.jackson.JacksonDecoder;
@@ -16,6 +18,7 @@ import feign.jackson.JacksonEncoder;
 import feign.micrometer.MicrometerCapability;
 import feign.okhttp.OkHttpClient;
 import feign.slf4j.Slf4jLogger;
+
 import io.github.resilience4j.bulkhead.BulkheadRegistry;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import io.github.resilience4j.feign.FeignDecorators;
@@ -26,6 +29,7 @@ import io.github.resilience4j.micrometer.tagged.TaggedRateLimiterMetrics;
 import io.github.resilience4j.micrometer.tagged.TaggedRetryMetrics;
 import io.github.resilience4j.ratelimiter.RateLimiterRegistry;
 import io.github.resilience4j.retry.RetryRegistry;
+
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -97,6 +101,7 @@ public class PrometheusHTTPFactory {
                 .logger(new Slf4jLogger())
                 .logLevel(Logger.Level.NONE)
                 .addCapability(new MicrometerCapability(config.meterRegistry()))
+                .requestInterceptor(new AuthInterceptor(config.auth()))
                 .target(config.api(), config.baseUrl());
     }
 }

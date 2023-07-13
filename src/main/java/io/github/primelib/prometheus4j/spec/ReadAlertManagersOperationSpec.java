@@ -21,6 +21,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadAlertManagersOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Constructs a validated implementation of {@link ReadAlertManagersOperationSpec}.
@@ -30,7 +35,8 @@ public class ReadAlertManagersOperationSpec {
     @ApiStatus.Internal
     public ReadAlertManagersOperationSpec(Consumer<ReadAlertManagersOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

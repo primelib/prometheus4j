@@ -25,6 +25,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadSeriesOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Repeated series selector argument that selects the series to return. At least one "match[]" argument must be provided. 
@@ -52,7 +57,8 @@ public class ReadSeriesOperationSpec {
     @ApiStatus.Internal
     public ReadSeriesOperationSpec(Consumer<ReadSeriesOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

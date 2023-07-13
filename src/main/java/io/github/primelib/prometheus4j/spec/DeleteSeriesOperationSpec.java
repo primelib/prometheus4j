@@ -25,6 +25,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class DeleteSeriesOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Repeated label matcher argument that selects the series to delete. At least one match[] argument must be provided. 
@@ -53,7 +58,8 @@ public class DeleteSeriesOperationSpec {
     @ApiStatus.Internal
     public DeleteSeriesOperationSpec(Consumer<DeleteSeriesOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

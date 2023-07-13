@@ -1,9 +1,14 @@
 package io.github.primelib.prometheus4j;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.prometheus4j.api.PrometheusHTTPApi;
+import io.github.primelib.prometheus4j.auth.AuthMethod;
+import io.github.primelib.prometheus4j.auth.BasicAuthSpec;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,6 +48,12 @@ public final class PrometheusHTTPFactorySpec<T> {
     private String baseUrl = "http://localhost/api/v1";
 
     /**
+     * The authentication methods to use
+     */
+    @Nullable
+    private List<AuthMethod> auth = new ArrayList<>(5);
+
+    /**
      * MeterRegistry to use for metrics
      */
     @NotNull
@@ -73,9 +84,16 @@ public final class PrometheusHTTPFactorySpec<T> {
         }
     }
 
+    public BasicAuthSpec basicAuth(Consumer<BasicAuthSpec> spec) {
+        BasicAuthSpec method = new BasicAuthSpec(spec);
+        auth.add(method);
+        return method;
+    }
+
     public void applySpec(PrometheusHTTPFactorySpec<?> spec) {
         backendName(spec.backendName());
         baseUrl(spec.baseUrl());
+        auth(spec.auth());
         meterRegistry(spec.meterRegistry());
     }
 }

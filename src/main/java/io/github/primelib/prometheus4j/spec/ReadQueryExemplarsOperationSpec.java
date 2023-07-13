@@ -24,6 +24,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadQueryExemplarsOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Prometheus expression query string. 
@@ -51,7 +56,8 @@ public class ReadQueryExemplarsOperationSpec {
     @ApiStatus.Internal
     public ReadQueryExemplarsOperationSpec(Consumer<ReadQueryExemplarsOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**

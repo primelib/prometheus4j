@@ -24,6 +24,11 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class EvaluateQueryRangeOperationSpec {
+    /**
+     * allows to disable validation of the spec, use with care!
+     */
+    @ApiStatus.Experimental
+    public static Boolean VALIDATION_ENABLED = true;
 
     /**
      * Prometheus expression query string. 
@@ -63,7 +68,8 @@ public class EvaluateQueryRangeOperationSpec {
     @ApiStatus.Internal
     public EvaluateQueryRangeOperationSpec(Consumer<EvaluateQueryRangeOperationSpec> spec) {
         spec.accept(this);
-        validate();
+        if (VALIDATION_ENABLED)
+            validate();
     }
 
     /**
