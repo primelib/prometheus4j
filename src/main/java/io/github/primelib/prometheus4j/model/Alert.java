@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 import lombok.experimental.Accessors;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,20 +44,14 @@ public class Alert {
         spec.accept(this);
     }
 
-    /**
-     * Labels is a sorted set of labels. Order has to be guaranteed upon instantiation.
-     */
     @JsonProperty("labels")
-    protected List<Label> labels;
+    protected Map<String, String> labels = new HashMap<>();
 
-    /**
-     * Labels is a sorted set of labels. Order has to be guaranteed upon instantiation.
-     */
     @JsonProperty("annotations")
-    protected List<Label> annotations;
+    protected Map<String, String> annotations = new HashMap<>();
 
     @JsonProperty("state")
-    protected String state;
+    protected AlertState state;
 
     @JsonProperty("activeAt")
     protected String activeAt;

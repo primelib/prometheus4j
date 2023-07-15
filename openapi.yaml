@@ -1178,11 +1178,15 @@ components:
       type: object
       properties:
         labels:
-          $ref: '#/components/schemas/Labels'
+          type: object
+          additionalProperties:
+            type: string
         annotations:
-          $ref: '#/components/schemas/Labels'
+          type: object
+          additionalProperties:
+            type: string
         state:
-          type: string
+          $ref: '#/components/schemas/AlertState'
         activeAt:
           type: string
           format: unix_timestamp
@@ -1283,11 +1287,13 @@ components:
         file:
           type: string
         interval:
-          type: number
-          format: float64
+          type: integer
+          format: int32
+          description: Interval at which the rule group is evaluated.This is the number of seconds between evaluations.
         lastEvaluation:
           type: string
           format: "rfc3339 | unix_timestamp"
+          description: Last time the rule group was evaluated.
         name:
           type: string
         rules:
@@ -1297,7 +1303,7 @@ components:
             specific properties, both alerting and recording rules are exposed in the
             same array.
           items:
-            $ref: '#/components/schemas/rule'
+            $ref: '#/components/schemas/Rule'
       description: RuleGroup has info for rules which are part of a group
     RuntimeInfo:
       type: object
@@ -1348,7 +1354,7 @@ components:
           format: "rfc3339 | unix_timestamp"
         lastScrapeDuration:
           type: number
-          format: float64
+          format: double
         health:
           $ref: '#/components/schemas/TargetHealth'
       description: Target has the information for one target.
@@ -1518,9 +1524,66 @@ components:
       description: A list of objects
       items:
         $ref: '#/components/schemas/MetricMetadata'
-    rule:
+    Rule:
       type: object
-    stat:
+      properties:
+        name:
+          type: string
+          description: Rule name
+        query:
+          type: string
+          description: PromQL expression
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        annotations:
+          type: object
+          additionalProperties:
+            type: string
+        health:
+          type: string
+          enum:
+            - ok
+          description: Rule health
+        state:
+          $ref: '#/components/schemas/AlertState'
+        type:
+          type: string
+          enum:
+            - alerting
+            - recording
+          description: Rule type
+        duration:
+          type: integer
+          format: int32
+          description: duration in seconds
+        alerts:
+          type: array
+          description: A list of active alerts
+          items:
+            $ref: '#/components/schemas/Alert'
+        lastEvaluation:
+          type: string
+          format: "rfc3339 | unix_timestamp"
+          description: Last time the rule was evaluated
+        evaluationTime:
+          type: number
+          format: float64
+          description: Time it took to evaluate the rule
+      required:
+        - name
+        - query
+        - health
+        - type
+    AlertState:
+      type: string
+      enum:
+        - firing
+        - pending
+        - inactive
+      description: The state of an alert.
+    Stat:
       type: object
       properties:
         name:
@@ -1539,26 +1602,26 @@ components:
           description: This will provide a list of the label names and their value
             count.
           items:
-            $ref: '#/components/schemas/stat'
+            $ref: '#/components/schemas/Stat'
         MemoryInBytesByLabelName:
           type: array
           description: This will provide a list of the label names and memory used
             in bytes. Memory usage is calculated by adding the length of all values
             for a given label name.
           items:
-            $ref: '#/components/schemas/stat'
+            $ref: '#/components/schemas/Stat'
         SeriesCountByLabelValuePair:
           type: array
           description: This will provide a list of label value pairs and their series
             count.
           items:
-            $ref: '#/components/schemas/stat'
+            $ref: '#/components/schemas/Stat'
         SeriesCountByMetricName:
           type: array
           description: This will provide a list of metrics names and their series
             count.
           items:
-            $ref: '#/components/schemas/stat'
+            $ref: '#/components/schemas/Stat'
       description: tsdbStatus has information of cardinality statistics from postings.
     WalReplayStatus:
       type: object

@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 import lombok.experimental.Accessors;
 
-import java.math.BigDecimal;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -51,9 +50,15 @@ public class RuleGroup {
     @JsonProperty("file")
     protected String _file;
 
+    /**
+     * Interval at which the rule group is evaluated.This is the number of seconds between evaluations.
+     */
     @JsonProperty("interval")
-    protected BigDecimal interval;
+    protected Integer interval;
 
+    /**
+     * Last time the rule group was evaluated.
+     */
     @JsonProperty("lastEvaluation")
     protected String lastEvaluation;
 
@@ -64,7 +69,7 @@ public class RuleGroup {
      * In order to preserve rule ordering, while exposing type (alerting or recording) specific properties, both alerting and recording rules are exposed in the same array.
      */
     @JsonProperty("rules")
-    protected List<Object> rules;
+    protected List<Rule> rules;
 
 
 }

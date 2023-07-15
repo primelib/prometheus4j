@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "name",
     "value"
 })
-@JsonTypeName("stat")
+@JsonTypeName("Stat")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Stat {
 

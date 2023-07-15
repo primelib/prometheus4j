@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 import lombok.experimental.Accessors;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,7 +77,7 @@ public class Target {
     protected String lastScrape;
 
     @JsonProperty("lastScrapeDuration")
-    protected BigDecimal lastScrapeDuration;
+    protected Double lastScrapeDuration;
 
     /**
      * TargetHealth describes the health state of a target.
