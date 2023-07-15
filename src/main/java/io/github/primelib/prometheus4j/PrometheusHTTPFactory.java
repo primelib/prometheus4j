@@ -48,7 +48,7 @@ public class PrometheusHTTPFactory {
             .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
             .build();
 
-    public static <T> T build(Consumer<PrometheusHTTPFactorySpec<T>> spec) {
+    public static <T> T create(Consumer<PrometheusHTTPFactorySpec<T>> spec) {
         PrometheusHTTPFactorySpec<T> config = new PrometheusHTTPFactorySpec<>(spec);
 
         if (config.api().isInterface()) {
@@ -66,8 +66,8 @@ public class PrometheusHTTPFactory {
         }
     }
 
-    public static PrometheusHTTPApi build() {
-        return build(spec -> spec.api(PrometheusHTTPApi.class));
+    public static PrometheusHTTPApi create() {
+        return create(spec -> spec.api(PrometheusHTTPApi.class));
     }
 
     private static <T> T buildClient(Consumer<PrometheusHTTPFactorySpec<T>> spec) {

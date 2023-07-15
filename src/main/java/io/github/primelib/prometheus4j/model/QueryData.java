@@ -31,20 +31,14 @@ public class QueryData {
     private ResultTypeEnum resultType;
 
 
-public enum ResultTypeEnum {
+    @AllArgsConstructor
+    public enum ResultTypeEnum {
         MATRIX("matrix"),
         VECTOR("vector"),
         SCALAR("scalar"),
         STRING("string");
-    
-    private final String text;
 
-    /**
-     * @param text
-     */
-    ResultTypeEnum(final String text) {
-        this.text = text;
+        private final String value;
     }
 
-}
 }
