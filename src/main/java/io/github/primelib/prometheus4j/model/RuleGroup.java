@@ -1,9 +1,13 @@
 package io.github.primelib.prometheus4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -17,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "evaluationTime",
     "file",
@@ -30,26 +35,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class RuleGroup {
 
+    /**
+     * Constructs a validated implementation of {@link RuleGroup}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public RuleGroup(Consumer<RuleGroup> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("evaluationTime")
-    private Double evaluationTime;
+    protected Double evaluationTime;
 
     @JsonProperty("file")
-    private String _file;
+    protected String _file;
 
     @JsonProperty("interval")
-    private BigDecimal interval;
+    protected BigDecimal interval;
 
     @JsonProperty("lastEvaluation")
-    private String lastEvaluation;
+    protected String lastEvaluation;
 
     @JsonProperty("name")
-    private String name;
+    protected String name;
 
     /**
      * In order to preserve rule ordering, while exposing type (alerting or recording) specific properties, both alerting and recording rules are exposed in the same array.
      */
     @JsonProperty("rules")
-    private List<Object> rules;
+    protected List<Object> rules;
 
 
 }

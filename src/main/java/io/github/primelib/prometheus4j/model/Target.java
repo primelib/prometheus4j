@@ -1,9 +1,13 @@
 package io.github.primelib.prometheus4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -19,7 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "discoveredLabels",
     "labels",
@@ -36,40 +41,50 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Target {
 
     /**
+     * Constructs a validated implementation of {@link Target}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public Target(Consumer<Target> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Labels before any processing.
      */
     @JsonProperty("discoveredLabels")
-    private Map<String, List<String>> discoveredLabels = new HashMap<>();
+    protected Map<String, List<String>> discoveredLabels = new HashMap<>();
 
     /**
      * Labels is a sorted set of labels. Order has to be guaranteed upon instantiation.
      */
     @JsonProperty("labels")
-    private List<Label> labels;
+    protected List<Label> labels;
 
     @JsonProperty("scrapePool")
-    private String scrapePool;
+    protected String scrapePool;
 
     @JsonProperty("scrapeURL")
-    private String scrapeURL;
+    protected String scrapeURL;
 
     @JsonProperty("globalURL")
-    private String globalURL;
+    protected String globalURL;
 
     @JsonProperty("lastError")
-    private String lastError;
+    protected String lastError;
 
     @JsonProperty("lastScrape")
-    private String lastScrape;
+    protected String lastScrape;
 
     @JsonProperty("lastScrapeDuration")
-    private BigDecimal lastScrapeDuration;
+    protected BigDecimal lastScrapeDuration;
 
     /**
      * TargetHealth describes the health state of a target.
      */
     @JsonProperty("health")
-    private String health;
+    protected String health;
 
 
 }

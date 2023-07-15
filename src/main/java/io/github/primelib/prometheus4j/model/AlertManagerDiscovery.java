@@ -1,9 +1,13 @@
 package io.github.primelib.prometheus4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "activeAlertmanagers",
     "droppedAlertmanagers"
@@ -25,11 +30,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class AlertManagerDiscovery {
 
+    /**
+     * Constructs a validated implementation of {@link AlertManagerDiscovery}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public AlertManagerDiscovery(Consumer<AlertManagerDiscovery> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("activeAlertmanagers")
-    private List<AlertmanagerTarget> activeAlertmanagers;
+    protected List<AlertmanagerTarget> activeAlertmanagers;
 
     @JsonProperty("droppedAlertmanagers")
-    private List<AlertmanagerTarget> droppedAlertmanagers;
+    protected List<AlertmanagerTarget> droppedAlertmanagers;
 
 
 }

@@ -1,9 +1,13 @@
 package io.github.primelib.prometheus4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "CWD",
     "GODEBUG",
@@ -32,35 +37,45 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class RuntimeInfo {
 
+    /**
+     * Constructs a validated implementation of {@link RuntimeInfo}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public RuntimeInfo(Consumer<RuntimeInfo> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("CWD")
-    private String CWD;
+    protected String CWD;
 
     @JsonProperty("GODEBUG")
-    private String GODEBUG;
+    protected String GODEBUG;
 
     @JsonProperty("GOGC")
-    private String GOGC;
+    protected String GOGC;
 
     @JsonProperty("GOMAXPROCS")
-    private Integer GOMAXPROCS;
+    protected Integer GOMAXPROCS;
 
     @JsonProperty("corruptionCount")
-    private Long corruptionCount;
+    protected Long corruptionCount;
 
     @JsonProperty("goroutineCount")
-    private Integer goroutineCount;
+    protected Integer goroutineCount;
 
     @JsonProperty("lastConfigTime")
-    private String lastConfigTime;
+    protected String lastConfigTime;
 
     @JsonProperty("reloadConfigSuccess")
-    private Boolean reloadConfigSuccess;
+    protected Boolean reloadConfigSuccess;
 
     @JsonProperty("startTime")
-    private String startTime;
+    protected String startTime;
 
     @JsonProperty("storageRetention")
-    private String storageRetention;
+    protected String storageRetention;
 
 
 }

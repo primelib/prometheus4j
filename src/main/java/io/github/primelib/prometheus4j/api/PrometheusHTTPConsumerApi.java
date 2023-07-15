@@ -48,10 +48,10 @@ import io.github.primelib.prometheus4j.spec.ReadTargetMetadataOperationSpec;
 import io.github.primelib.prometheus4j.spec.ReadTargetsOperationSpec;
 
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class PrometheusHTTPSpecApi {
+public class PrometheusHTTPConsumerApi {
     private final PrometheusHTTPApi api;
 
-    public PrometheusHTTPSpecApi(PrometheusHTTPApi api) {
+    public PrometheusHTTPConsumerApi(PrometheusHTTPApi api) {
         this.api = api;
     }
 

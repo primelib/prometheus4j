@@ -15,35 +15,41 @@ implementation("io.github.primelib:prometheus4j:<latestVersion>")
 
 ## Usage
 
-*Parameter-Style*
+*Consumer Specification Approach*
+
+```java
+PrometheusHTTPConsumerApi client = PrometheusHTTPFactory.create(spec -> {
+    spec.api(PrometheusHTTPConsumerApi.class);
+    spec.baseUrl("http://localhost:9090/api/v1");
+    // optional auth
+    spec.basicAuth(authSpec -> {
+        authSpec.username("<username>");
+        authSpec.password("<password>");
+    });
+});
+
+RuleReadResponse alertingRules = client.readRules(spec ->{
+    spec.type("alert")
+});
+```
+
+*Parameter Approach*
 
 ```java
 PrometheusHTTPApi client = PrometheusHTTPFactory.create(spec -> {
     spec.api(PrometheusHTTPApi.class);
+    spec.baseUrl("http://localhost:9090/api/v1");
     // optional auth
-    spec.basicAuth(auth -> {
-        auth.username("yourUsername");
-        auth.password("yourPassword");
+    spec.basicAuth(authSpec -> {
+        authSpec.username("<username>");
+        authSpec.password("<password>");
     });
 });
 
 RuleReadResponse alertingRules = client.readRules("alert");
 ```
 
-*Spec-Style*
-
-```java
-PrometheusHTTPSpecApi client = PrometheusHTTPFactory.create(spec -> {
-    spec.api(PrometheusHTTPSpecApi.class);
-    // optional auth
-    spec.basicAuth(auth -> {
-        auth.username("yourUsername");
-        auth.password("yourPassword");
-    });
-});
-
-RuleReadResponse alertingRules = client.readRules(spec -> spec.type("alert"));
-```
+**_NOTE:_** The  `Parameter Approach` can break if the API changes. The `Consumer Specification Approach` is more resilient to API changes.
 
 ## Contribution
 

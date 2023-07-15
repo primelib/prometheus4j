@@ -6,8 +6,7 @@ PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # test
 case $1 in
   "update")
-    echo "> running update"
-    # update openapi spec
+    echo "> updating openapi spec"
     # NOTE: this openapi spec is crafted by hand
     ;;
 
