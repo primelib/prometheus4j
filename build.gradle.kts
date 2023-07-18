@@ -30,7 +30,7 @@ projectConfiguration {
         }
         pom.licenses {
             license {
-                name.set("MIT Licence")
+                name.set("MIT")
                 distribution.set("repo")
                 url.set("https://github.com/primelib/prometheus4j/blob/main/LICENSE")
             }
@@ -47,6 +47,7 @@ dependencies {
     // bom
     api(platform("io.github.openfeign:feign-bom:12.4"))
     api(platform("io.github.resilience4j:resilience4j-bom:2.1.0"))
+    api(platform("com.fasterxml.jackson:jackson-bom:2.15.2"))
 
     // annotations
     implementation("org.jetbrains:annotations:24.0.1")
@@ -65,6 +66,10 @@ dependencies {
     implementation("io.github.resilience4j:resilience4j-circuitbreaker")
     implementation("io.github.resilience4j:resilience4j-ratelimiter")
     implementation("io.github.resilience4j:resilience4j-micrometer")
+
+    // jackson
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+    implementation("com.fasterxml.jackson.module:jackson-module-blackbird")
 
     // metrics
     implementation("io.micrometer:micrometer-core:1.11.1")

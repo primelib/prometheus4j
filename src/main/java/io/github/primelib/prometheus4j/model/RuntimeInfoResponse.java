@@ -43,7 +43,7 @@ public class RuntimeInfoResponse {
     protected String status;
 
     @JsonProperty("data")
-    protected RuntimeInfoResponseData data;
+    protected RuntimeInfo data;
 
 
 }

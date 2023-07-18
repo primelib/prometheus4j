@@ -9,13 +9,12 @@ import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 import lombok.experimental.Accessors;
 
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * SnapshotCreateResponseData
+ * TsdbStatusReadResponse
  *
  */
 @Data
@@ -23,24 +22,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Accessors(fluent = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
-    "groups"
+    "status",
+    "data"
 })
-@JsonTypeName("SnapshotCreateResponse_data")
+@JsonTypeName("TsdbStatusReadResponse")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class SnapshotCreateResponseData {
+public class TsdbStatusReadResponse {
 
     /**
-     * Constructs a validated implementation of {@link SnapshotCreateResponseData}.
+     * Constructs a validated implementation of {@link TsdbStatusReadResponse}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
-    public SnapshotCreateResponseData(Consumer<SnapshotCreateResponseData> spec) {
+    public TsdbStatusReadResponse(Consumer<TsdbStatusReadResponse> spec) {
         spec.accept(this);
     }
 
-    @JsonProperty("groups")
-    protected List<Snapshot> groups;
+    @JsonProperty("status")
+    protected String status;
+
+    @JsonProperty("data")
+    protected TsdbStatus data;
 
 
 }

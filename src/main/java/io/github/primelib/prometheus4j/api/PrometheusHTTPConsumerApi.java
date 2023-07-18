@@ -20,7 +20,7 @@ import io.github.primelib.prometheus4j.model.RuleReadResponse;
 import io.github.primelib.prometheus4j.model.RuntimeInfoResponse;
 import io.github.primelib.prometheus4j.model.SnapshotCreateResponse;
 import io.github.primelib.prometheus4j.model.TargetDiscoveryReadResponse;
-import io.github.primelib.prometheus4j.model.TsdbStatus;
+import io.github.primelib.prometheus4j.model.TsdbStatusReadResponse;
 import io.github.primelib.prometheus4j.model.WalReplayStatusReadResponse;
 
 import java.util.function.Consumer;
@@ -273,7 +273,7 @@ public class PrometheusHTTPConsumerApi {
      * **seriesCountByMetricName:** This will provide a list of metrics names and their series count. **labelValueCountByLabelName:** This will provide a list of the label names and their value count. **memoryInBytesByLabelName:** This will provide a list of the label names and memory used in bytes. Memory usage is calculated by adding the length of all values for a given label name. **seriesCountByLabelPair:** This will provide a list of label value pairs and their series count. 
      * @param spec                 a consumer that takes a spec to prepare the request for execution
      */
-    public TsdbStatus readServerTSDBStatus(Consumer<ReadServerTSDBStatusOperationSpec> spec) {
+    public TsdbStatusReadResponse readServerTSDBStatus(Consumer<ReadServerTSDBStatusOperationSpec> spec) {
         ReadServerTSDBStatusOperationSpec r = new ReadServerTSDBStatusOperationSpec(spec);
         return api.readServerTSDBStatus();
     }

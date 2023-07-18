@@ -43,7 +43,7 @@ public class SnapshotCreateResponse {
     protected String status;
 
     @JsonProperty("data")
-    protected SnapshotCreateResponseData data;
+    protected Snapshot data;
 
 
 }

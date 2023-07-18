@@ -23,7 +23,7 @@ import io.github.primelib.prometheus4j.model.RuleReadResponse;
 import io.github.primelib.prometheus4j.model.RuntimeInfoResponse;
 import io.github.primelib.prometheus4j.model.SnapshotCreateResponse;
 import io.github.primelib.prometheus4j.model.TargetDiscoveryReadResponse;
-import io.github.primelib.prometheus4j.model.TsdbStatus;
+import io.github.primelib.prometheus4j.model.TsdbStatusReadResponse;
 import io.github.primelib.prometheus4j.model.WalReplayStatusReadResponse;
 import feign.RequestLine;
 import feign.Param;
@@ -245,7 +245,7 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /status/tsdb")
-    TsdbStatus readServerTSDBStatus();
+    TsdbStatusReadResponse readServerTSDBStatus();
 
     /**
      * Returns info about WAL replay.

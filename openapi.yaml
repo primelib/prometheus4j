@@ -821,7 +821,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/tsdbStatus'
+                $ref: '#/components/schemas/TsdbStatusReadResponse'
               example:
                 status: success
                 data:
@@ -1081,12 +1081,7 @@ components:
         status:
           type: string
         data:
-          type: object
-          properties:
-            groups:
-              type: array
-              items:
-                $ref: '#/components/schemas/RuntimeInfo'
+          $ref: '#/components/schemas/RuntimeInfo'
       description: RuntimeInfo about the Prometheus instance
     SnapshotCreateResponse:
       type: object
@@ -1094,12 +1089,7 @@ components:
         status:
           type: string
         data:
-          type: object
-          properties:
-            groups:
-              type: array
-              items:
-                $ref: '#/components/schemas/Snapshot'
+          $ref: '#/components/schemas/Snapshot'
       description: Snapshot created response
     LabelValuesReadResponse:
       type: object
@@ -1173,6 +1163,14 @@ components:
         data:
           $ref: '#/components/schemas/TargetDiscovery'
       description: TargetDiscovery read response
+    TsdbStatusReadResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          $ref: '#/components/schemas/TsdbStatus'
+      description: TsdbStatus read response
     # Models
     Alert:
       type: object
@@ -1592,7 +1590,7 @@ components:
           type: integer
           format: uint64
       description: stat holds the information about individual cardinality.
-    tsdbStatus:
+    TsdbStatus:
       type: object
       properties:
         HeadStats:

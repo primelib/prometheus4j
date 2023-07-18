@@ -5,6 +5,16 @@
 	"modelPackage" : "io.github.primelib.prometheus4j.model",
 	"enablePostProcessFile": true,
 	"additionalProperties": {
-		"projectName": "prometheus4j"
+		"projectName": "prometheus4j",
+		"projectDescription": "A Java Wrapper for the Prometheus REST API",
+		"projectRepository":  "github.com/primelib/prometheus4j",
+		"projectInceptionYear":  "2023",
+		"projectLicenseName": "MIT",
+		"projectLicenseUrl": "https://github.com/primelib/prometheus4j/blob/main/LICENSE",
+		"projectArtifactGroupId": "io.github.primelib",
+		"projectArtifactId": "prometheus4j",
+		"projectMaintainerId": "PhilippHeuer",
+		"projectMaintainerName": "Philipp Heuer",
+		"projectMaintainerEMail": "git@philippheuer.me"
 	}
 }

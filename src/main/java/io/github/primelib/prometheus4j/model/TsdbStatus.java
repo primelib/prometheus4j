@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "SeriesCountByLabelValuePair",
     "SeriesCountByMetricName"
 })
-@JsonTypeName("tsdbStatus")
+@JsonTypeName("TsdbStatus")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class TsdbStatus {
 
