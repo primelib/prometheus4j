@@ -1,6 +1,6 @@
 plugins {
     `java-library`
-    id("me.philippheuer.configuration") version "0.10.6"
+    id("me.philippheuer.configuration") version "0.10.7"
 }
 
 val version: String = properties["version"] as? String ?: "0.0.0"

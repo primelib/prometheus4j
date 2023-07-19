@@ -60,6 +60,15 @@ public final class PrometheusHTTPFactorySpec<T> {
     private MeterRegistry meterRegistry = new CompositeMeterRegistry();
 
     /**
+     * the feign log level
+     * <p>
+     * Defaults to {@code none}.
+     * Allowed values are: {@code none}, {@code basic}, {@code headers}, {@code full}
+     */
+    @NotNull
+    private String logLevel = "none";
+
+    /**
      * Constructs a validated implementation of {@link PrometheusHTTPApi}.
      *
      * @param spec the specification to process
@@ -82,6 +91,7 @@ public final class PrometheusHTTPFactorySpec<T> {
         if (baseUrl.isEmpty()) {
             throw new IllegalArgumentException("baseUrl must not be empty");
         }
+        Objects.requireNonNull(logLevel, "logLevel must not be null");
     }
 
     public BasicAuthSpec basicAuth(Consumer<BasicAuthSpec> spec) {

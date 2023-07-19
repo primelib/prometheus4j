@@ -27,6 +27,7 @@ import io.github.primelib.prometheus4j.model.TsdbStatusReadResponse;
 import io.github.primelib.prometheus4j.model.WalReplayStatusReadResponse;
 import feign.RequestLine;
 import feign.Param;
+import feign.Headers;
 
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public interface PrometheusHTTPApi {
@@ -38,6 +39,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("POST /admin/tsdb/clean_tombstones")
+    @Headers({
+        "Accept: application/json"
+    })
     void cleanTombstones();
 
     /**
@@ -47,7 +51,10 @@ public interface PrometheusHTTPApi {
      *
      * @param skipHead             Skip data present in the head block. Optional.  (optional)
      */
-    @RequestLine("POST /admin/tsdb/snapshot?skip_head={skipHead}")
+    @RequestLine("POST /admin/tsdb/snapshot?skip_head={skip_head}")
+    @Headers({
+        "Accept: application/json"
+    })
     SnapshotCreateResponse createSnapshot(@Param("skip_head") @Nullable Boolean skipHead);
 
     /**
@@ -61,6 +68,9 @@ public interface PrometheusHTTPApi {
      * @param end                  End timestamp. Optional and defaults to maximum possible time.  Not mentioning both start and end times would clear all the data for the matched series in the database.  (optional)
      */
     @RequestLine("POST /admin/tsdb/delete_series?match={match}&start={start}&end={end}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteSeries(@Param("match") @NotNull List<String> match, @Param("start") @Nullable String start, @Param("end") @Nullable String end);
 
     /**
@@ -77,6 +87,9 @@ public interface PrometheusHTTPApi {
      * @param timeout              Evaluation timeout. Optional. Defaults to and is capped by the value of the "-query.timeout" flag.  (optional)
      */
     @RequestLine("GET /query?query={query}&time={time}&timeout={timeout}")
+    @Headers({
+        "Accept: application/json"
+    })
     QueryDataReadResponse evaluateQueryInstant(@Param("query") @NotNull String query, @Param("time") @Nullable String time, @Param("timeout") @Nullable String timeout);
 
     /**
@@ -95,6 +108,9 @@ public interface PrometheusHTTPApi {
      * @param timeout              Evaluation timeout. Optional. Defaults to and is capped by the value of the "-query.timeout" flag.  (optional)
      */
     @RequestLine("GET /query_range?query={query}&start={start}&end={end}&step={step}&timeout={timeout}")
+    @Headers({
+        "Accept: application/json"
+    })
     ResponseQueryRange evaluateQueryRange(@Param("query") @NotNull String query, @Param("start") @Nullable String start, @Param("end") @Nullable String end, @Param("step") @Nullable String step, @Param("timeout") @Nullable String timeout);
 
     /**
@@ -107,6 +123,9 @@ public interface PrometheusHTTPApi {
      * @param metric               A metric name to filter metadata for. All metric metadata is retrieved if left empty. (optional)
      */
     @RequestLine("GET /metadata?limit={limit}&metric={metric}")
+    @Headers({
+        "Accept: application/json"
+    })
     MetadataReadResponse metricMetadataReadResponse(@Param("limit") @NotNull Integer limit, @Param("metric") @Nullable String metric);
 
     /**
@@ -117,6 +136,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /alertmanagers")
+    @Headers({
+        "Accept: application/json"
+    })
     AlertManagerReadResponse readAlertManagers();
 
     /**
@@ -127,6 +149,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /alerts")
+    @Headers({
+        "Accept: application/json"
+    })
     AlertReadResponse readAlerts();
 
     /**
@@ -140,6 +165,9 @@ public interface PrometheusHTTPApi {
      * @param match                Repeated series selector argument that selects the series from which to read the label values. Optional.  (optional)
      */
     @RequestLine("GET /labels?start={start}&end={end}&match={match}")
+    @Headers({
+        "Accept: application/json"
+    })
     LabelNamesReadResponse readLabelNames(@Param("start") @Nullable String start, @Param("end") @Nullable String end, @Param("match") @Nullable List<String> match);
 
     /**
@@ -154,6 +182,9 @@ public interface PrometheusHTTPApi {
      * @param match                Repeated series selector argument that selects the series from which to read the label values.  (optional)
      */
     @RequestLine("GET /label/{label_name}/values?start={start}&end={end}&match={match}")
+    @Headers({
+        "Accept: application/json"
+    })
     LabelValuesReadResponse readLabelValues(@Param("label_name") @NotNull String labelName, @Param("start") @NotNull String start, @Param("end") @Nullable String end, @Param("match") @Nullable List<String> match);
 
     /**
@@ -166,6 +197,9 @@ public interface PrometheusHTTPApi {
      * @param end                  End timestamp.  (optional)
      */
     @RequestLine("GET /query_exemplars?query={query}&start={start}&end={end}")
+    @Headers({
+        "Accept: application/json"
+    })
     @ApiStatus.Experimental
     QueryExemplarsReadResponse readQueryExemplars(@Param("query") @NotNull String query, @Param("start") @Nullable String start, @Param("end") @Nullable String end);
 
@@ -178,6 +212,9 @@ public interface PrometheusHTTPApi {
      * @param type                 Return only the alerting rules (e.g. "type=alert") or the recording rules (e.g. "type=record"). When the parameter is absent or empty, no filtering is done.  (optional)
      */
     @RequestLine("GET /rules?type={type}")
+    @Headers({
+        "Accept: application/json"
+    })
     RuleReadResponse readRules(@Param("type") @Nullable String type);
 
     /**
@@ -192,6 +229,9 @@ public interface PrometheusHTTPApi {
      * @param end                  End timestamp. Optional.  (optional)
      */
     @RequestLine("GET /series?start={start}&end={end}&match={match}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<QueryDataResultMetric> readSeries(@Param("match") @NotNull List<String> match, @Param("start") @Nullable String start, @Param("end") @Nullable String end);
 
     /**
@@ -201,6 +241,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /status/buildinfo")
+    @Headers({
+        "Accept: application/json"
+    })
     PrometheusBuildInfoReadResponse readServerBuildInfo();
 
     /**
@@ -211,6 +254,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /status/config")
+    @Headers({
+        "Accept: application/json"
+    })
     PrometheusConfigReadResponse readServerConfig();
 
     /**
@@ -220,6 +266,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /status/flags")
+    @Headers({
+        "Accept: application/json"
+    })
     void readServerFlags();
 
     /**
@@ -233,6 +282,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /status/runtimeinfo")
+    @Headers({
+        "Accept: application/json"
+    })
     RuntimeInfoResponse readServerRuntimeInfo();
 
     /**
@@ -245,6 +297,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /status/tsdb")
+    @Headers({
+        "Accept: application/json"
+    })
     TsdbStatusReadResponse readServerTSDBStatus();
 
     /**
@@ -270,6 +325,9 @@ public interface PrometheusHTTPApi {
      *
      */
     @RequestLine("GET /status/walreplay")
+    @Headers({
+        "Accept: application/json"
+    })
     WalReplayStatusReadResponse readServerWALReplayStatus();
 
     /**
@@ -282,7 +340,10 @@ public interface PrometheusHTTPApi {
      * @param metric               A metric name to retrieve metadata for. All metric metadata is retrieved if left empty.  (optional)
      * @param limit                Maximum number of targets to match.  (optional)
      */
-    @RequestLine("GET /targets/metadata?match_target={matchTarget}&metric={metric}&limit={limit}")
+    @RequestLine("GET /targets/metadata?match_target={match_target}&metric={metric}&limit={limit}")
+    @Headers({
+        "Accept: application/json"
+    })
     @ApiStatus.Experimental
     List<MetricMetadata> readTargetMetadata(@Param("match_target") @Nullable String matchTarget, @Param("metric") @Nullable String metric, @Param("limit") @Nullable Integer limit);
 
@@ -294,6 +355,9 @@ public interface PrometheusHTTPApi {
      * @param state                The "state" query parameter allows the caller to filter by active or dropped targets, (e.g., "state=active", "state=dropped", "state=any").  (optional)
      */
     @RequestLine("GET /targets?state={state}")
+    @Headers({
+        "Accept: application/json"
+    })
     TargetDiscoveryReadResponse readTargets(@Param("state") @Nullable String state);
 
 }

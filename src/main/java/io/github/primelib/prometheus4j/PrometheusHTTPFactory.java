@@ -105,7 +105,7 @@ public class PrometheusHTTPFactory {
                 .encoder(new JacksonEncoder(MAPPER))
                 .decoder(new JacksonDecoder(MAPPER))
                 .logger(new Slf4jLogger())
-                .logLevel(Logger.Level.NONE)
+                .logLevel(Logger.Level.valueOf(config.logLevel().toUpperCase()))
                 .addCapability(new MicrometerCapability(config.meterRegistry()))
                 .requestInterceptor(new AuthInterceptor(config.auth()))
                 .target(config.api(), config.baseUrl());
