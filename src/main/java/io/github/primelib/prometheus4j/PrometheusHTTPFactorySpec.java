@@ -54,6 +54,15 @@ public final class PrometheusHTTPFactorySpec<T> {
     private List<AuthMethod> auth = new ArrayList<>(5);
 
     /**
+     * The proxy server to use, if applicable
+     * <p>
+     * Defaults to {@code null}.
+     * Set to {@code PrometheusHTTPProxySpec.detect()} to detect the proxy based on the os environment automatically.
+     */
+    @Nullable
+    private PrometheusHTTPProxySpec proxy = null;
+
+    /**
      * MeterRegistry to use for metrics
      */
     @NotNull
@@ -94,6 +103,12 @@ public final class PrometheusHTTPFactorySpec<T> {
         Objects.requireNonNull(logLevel, "logLevel must not be null");
     }
 
+    public PrometheusHTTPProxySpec httpProxy(Consumer<PrometheusHTTPProxySpec> proxySpec) {
+        PrometheusHTTPProxySpec proxy = new PrometheusHTTPProxySpec(proxySpec);
+        proxy(proxy);
+        return proxy;
+    }
+
     public BasicAuthSpec basicAuth(Consumer<BasicAuthSpec> spec) {
         BasicAuthSpec method = new BasicAuthSpec(spec);
         auth.add(method);
@@ -104,6 +119,7 @@ public final class PrometheusHTTPFactorySpec<T> {
         backendName(spec.backendName());
         baseUrl(spec.baseUrl());
         auth(spec.auth());
+        proxy(spec.proxy());
         meterRegistry(spec.meterRegistry());
     }
 }

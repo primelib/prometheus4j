@@ -3,10 +3,13 @@ package io.github.primelib.prometheus4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Metadata
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "help",
     "type",
@@ -29,16 +35,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("Metadata")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Metadata {
-
-    /**
-     * Constructs a validated implementation of {@link Metadata}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Metadata(Consumer<Metadata> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("help")
     protected String help;
@@ -52,5 +48,28 @@ public class Metadata {
     @JsonProperty("unit")
     protected String unit;
 
+    /**
+     * Constructs a validated instance of {@link Metadata}.
+     *
+     * @param spec the specification to process
+     */
+    public Metadata(Consumer<Metadata> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Metadata}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Metadata(Consumer)} instead.
+     * @param help var.name
+     * @param type MetricType represents metric type values.
+     * @param unit var.name
+     */
+    @ApiStatus.Internal
+    public Metadata(String help, String type, String unit) {
+        this.help = help;
+        this.type = type;
+        this.unit = unit;
+    }
 
 }

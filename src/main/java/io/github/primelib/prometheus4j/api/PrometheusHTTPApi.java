@@ -5,7 +5,6 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
-import lombok.Data;
 
 import io.github.primelib.prometheus4j.model.AlertManagerReadResponse;
 import io.github.primelib.prometheus4j.model.AlertReadResponse;
@@ -47,7 +46,7 @@ public interface PrometheusHTTPApi {
     /**
      * Creates Snapshot of current data
      * <p>
-     * Snapshot creates a snapshot of all current data into "snapshots/&amp;lt;datetime&amp;gt;-&amp;lt;rand&amp;gt;" under the TSDB's data directory and returns the directory as response. It will optionally skip snapshotting data that is only present in the head block, and which has not yet been compacted to disk. 
+     * Snapshot creates a snapshot of all current data into {@code }{@code snapshots/&amp;lt;datetime&amp;gt;-&amp;lt;rand&amp;gt;}{@code } under the TSDB's data directory and returns the directory as response. It will optionally skip snapshotting data that is only present in the head block, and which has not yet been compacted to disk. 
      *
      * @param skipHead             Skip data present in the head block. Optional.  (optional)
      */
@@ -77,14 +76,14 @@ public interface PrometheusHTTPApi {
      * Evaluates instant query
      * <p>
      * The following endpoint evaluates an instant query at a single point in time
-     * You can URL-encode these parameters directly in the request body by using the "POST" method and "Content-Type: application/x-www-form-urlencoded" header. This is useful when specifying a large query that may breach server-side URL character limits.
-     * The data section of the query result has the following format " {
+     * You can URL-encode these parameters directly in the request body by using the {@code }{@code POST}{@code } method and {@code }{@code Content-Type: application/x-www-form-urlencoded}{@code } header. This is useful when specifying a large query that may breach server-side URL character limits.
+     * The data section of the query result has the following format {@code }` {
      *  "resultType": "matrix" | "vector" | "scalar" | "string",
-     *  "result": &amp;lt;value&amp;gt; } " "&amp;lt;value&amp;gt;" refers to the query result data, which has varying formats depending on the "resultType". See the [expression query result formats](https://prometheus.io/docs/prometheus/latest/querying/api/#expression-query-result-formats). 
+     *  "result": &amp;lt;value&amp;gt; } {@code }{@code  }{@code }&amp;lt;value&amp;gt;{@code }{@code  refers to the query result data, which has varying formats depending on the }{@code }resultType{@code }`. See the [expression query result formats](https://prometheus.io/docs/prometheus/latest/querying/api/#expression-query-result-formats). 
      *
      * @param query                Prometheus expression query string.  (required)
      * @param time                 Evaluation timestamp. Optional. The current server time is used if the time parameter is omitted.  (optional)
-     * @param timeout              Evaluation timeout. Optional. Defaults to and is capped by the value of the "-query.timeout" flag.  (optional)
+     * @param timeout              Evaluation timeout. Optional. Defaults to and is capped by the value of the {@code }{@code -query.timeout}{@code } flag.  (optional)
      */
     @RequestLine("GET /query?query={query}&time={time}&timeout={timeout}")
     @Headers({
@@ -96,16 +95,16 @@ public interface PrometheusHTTPApi {
      * Evaluates query over range of time.
      * <p>
      * The following endpoint evaluates an expression query over a range of time
-     * You can URL-encode these parameters directly in the request body by using the "POST" method and "Content-Type: application/x-www-form-urlencoded" header. This is useful when specifying a large query that may breach server-side URL character limits.
-     * The data section of the query result has the following format " {
+     * You can URL-encode these parameters directly in the request body by using the {@code }{@code POST}{@code } method and {@code }{@code Content-Type: application/x-www-form-urlencoded}{@code } header. This is useful when specifying a large query that may breach server-side URL character limits.
+     * The data section of the query result has the following format {@code }` {
      *  "resultType": "matrix",
-     *  "result": &amp;lt;value&amp;gt; } " For the format of the "&amp;lt;value&amp;gt;" placeholder, see the [range-vector result format](https://prometheus.io/docs/prometheus/latest/querying/api/#range-vectors). 
+     *  "result": &amp;lt;value&amp;gt; } {@code }{@code  For the format of the }{@code }&amp;lt;value&amp;gt;{@code }` placeholder, see the [range-vector result format](https://prometheus.io/docs/prometheus/latest/querying/api/#range-vectors). 
      *
      * @param query                Prometheus expression query string.  (required)
      * @param start                Start timestamp.  (optional)
      * @param end                  End timestamp.  (optional)
-     * @param step                 Query resolution step width in "duration" format or float number of seconds.  (optional)
-     * @param timeout              Evaluation timeout. Optional. Defaults to and is capped by the value of the "-query.timeout" flag.  (optional)
+     * @param step                 Query resolution step width in {@code }{@code duration}{@code } format or float number of seconds.  (optional)
+     * @param timeout              Evaluation timeout. Optional. Defaults to and is capped by the value of the {@code }{@code -query.timeout}{@code } flag.  (optional)
      */
     @RequestLine("GET /query_range?query={query}&start={start}&end={end}&step={step}&timeout={timeout}")
     @Headers({
@@ -158,7 +157,7 @@ public interface PrometheusHTTPApi {
      * Returns label names
      * <p>
      * The following endpoint returns a list of label names.
-     * The `data` section of the JSON response is a list of string label names. **NOTE:** These API endpoints may return metadata for series for which there is no sample within the selected time range, and/or for series whose samples have been marked as deleted via the deletion API endpoint. The exact extent of additionally returned series metadata is an implementation detail that may change in the future. 
+     * The {@code data} section of the JSON response is a list of string label names. **NOTE:** These API endpoints may return metadata for series for which there is no sample within the selected time range, and/or for series whose samples have been marked as deleted via the deletion API endpoint. The exact extent of additionally returned series metadata is an implementation detail that may change in the future. 
      *
      * @param start                Start timestamp.  (optional)
      * @param end                  End timestamp.  (optional)
@@ -173,7 +172,7 @@ public interface PrometheusHTTPApi {
     /**
      * Returns label values
      * <p>
-     * The following endpoint returns a list of label values for a provided label name The `data` section of the JSON response is a list of string label values.
+     * The following endpoint returns a list of label values for a provided label name The {@code data} section of the JSON response is a list of string label values.
      * **NOTE:** These API endpoints may return metadata for series for which there is no sample within the selected time range, and/or for series whose samples have been marked as deleted via the deletion API endpoint. The exact extent of additionally returned series metadata is an implementation detail that may change in the future. 
      *
      * @param labelName            Label name. (required)
@@ -206,10 +205,10 @@ public interface PrometheusHTTPApi {
     /**
      * Returns currently loaded rules
      * <p>
-     * The "/rules" API endpoint returns a list of alerting and recording rules that are currently loaded. In addition it returns the currently active alerts fired by the Prometheus instance of each alerting rule.
-     * As the "/rules" endpoint is fairly new, it does not have the same stability guarantees as the overarching API v1.
+     * The {@code }{@code /rules}{@code } API endpoint returns a list of alerting and recording rules that are currently loaded. In addition it returns the currently active alerts fired by the Prometheus instance of each alerting rule.
+     * As the {@code }{@code /rules}{@code } endpoint is fairly new, it does not have the same stability guarantees as the overarching API v1.
      *
-     * @param type                 Return only the alerting rules (e.g. "type=alert") or the recording rules (e.g. "type=record"). When the parameter is absent or empty, no filtering is done.  (optional)
+     * @param type                 Return only the alerting rules (e.g. {@code }{@code type=alert}{@code }) or the recording rules (e.g. {@code }{@code type=record}{@code }). When the parameter is absent or empty, no filtering is done.  (optional)
      */
     @RequestLine("GET /rules?type={type}")
     @Headers({
@@ -221,10 +220,10 @@ public interface PrometheusHTTPApi {
      * Returns time series
      * <p>
      * The following endpoint returns the list of time series that match a certain label set.
-     * You can URL-encode these parameters directly in the request body by using the "POST" method and "Content-Type: application/x-www-form-urlencoded" header. This is useful when specifying a large or dynamic number of series selectors that may breach server-side URL character limits.
-     * The "data" section of the query result consists of a list of objects that contain the label name/value pairs which identify each series. 
+     * You can URL-encode these parameters directly in the request body by using the {@code }{@code POST}{@code } method and {@code }{@code Content-Type: application/x-www-form-urlencoded}{@code } header. This is useful when specifying a large or dynamic number of series selectors that may breach server-side URL character limits.
+     * The {@code }{@code data}{@code } section of the query result consists of a list of objects that contain the label name/value pairs which identify each series. 
      *
-     * @param match                Repeated series selector argument that selects the series to return. At least one "match[]" argument must be provided.  (required)
+     * @param match                Repeated series selector argument that selects the series to return. At least one {@code }{@code match[]}{@code } argument must be provided.  (required)
      * @param start                Start timestamp. Optional.  (optional)
      * @param end                  End timestamp. Optional.  (optional)
      */
@@ -334,7 +333,7 @@ public interface PrometheusHTTPApi {
      * Returns target metadata
      * <p>
      * The following endpoint returns metadata about metrics currently scraped from targets. This is experimental and might change in the future.
-     * The "data" section of the query result consists of a list of objects that contain metric metadata and the target label set.
+     * The {@code }{@code data}{@code } section of the query result consists of a list of objects that contain metric metadata and the target label set.
      *
      * @param matchTarget          Label selectors that match targets by their label sets. All targets are selected if left empty.  (optional)
      * @param metric               A metric name to retrieve metadata for. All metric metadata is retrieved if left empty.  (optional)
@@ -350,9 +349,9 @@ public interface PrometheusHTTPApi {
     /**
      * Returns current target discovery.
      * <p>
-     * Both the active and dropped targets are part of the response by default. "labels" represents the label set after relabelling has occurred. "discoveredLabels" represent the unmodified labels retrieved during service discovery before relabelling has occurred. 
+     * Both the active and dropped targets are part of the response by default. {@code }{@code labels}{@code } represents the label set after relabelling has occurred. {@code }{@code discoveredLabels}{@code } represent the unmodified labels retrieved during service discovery before relabelling has occurred. 
      *
-     * @param state                The "state" query parameter allows the caller to filter by active or dropped targets, (e.g., "state=active", "state=dropped", "state=any").  (optional)
+     * @param state                The {@code }{@code state}{@code } query parameter allows the caller to filter by active or dropped targets, (e.g., {@code }{@code state=active}{@code }, {@code }{@code state=dropped}{@code }, {@code }{@code state=any}{@code }).  (optional)
      */
     @RequestLine("GET /targets?state={state}")
     @Headers({

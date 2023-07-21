@@ -3,10 +3,13 @@ package io.github.primelib.prometheus4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * PrometheusBuildInfo
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "branch",
     "buildDate",
@@ -32,16 +38,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("PrometheusBuildInfo")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class PrometheusBuildInfo {
-
-    /**
-     * Constructs a validated implementation of {@link PrometheusBuildInfo}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public PrometheusBuildInfo(Consumer<PrometheusBuildInfo> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("branch")
     protected String branch;
@@ -61,5 +57,34 @@ public class PrometheusBuildInfo {
     @JsonProperty("version")
     protected String version;
 
+    /**
+     * Constructs a validated instance of {@link PrometheusBuildInfo}.
+     *
+     * @param spec the specification to process
+     */
+    public PrometheusBuildInfo(Consumer<PrometheusBuildInfo> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link PrometheusBuildInfo}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PrometheusBuildInfo(Consumer)} instead.
+     * @param branch var.name
+     * @param buildDate var.name
+     * @param buildUser var.name
+     * @param goVersion var.name
+     * @param revision var.name
+     * @param version var.name
+     */
+    @ApiStatus.Internal
+    public PrometheusBuildInfo(String branch, String buildDate, String buildUser, String goVersion, String revision, String version) {
+        this.branch = branch;
+        this.buildDate = buildDate;
+        this.buildUser = buildUser;
+        this.goVersion = goVersion;
+        this.revision = revision;
+        this.version = version;
+    }
 
 }

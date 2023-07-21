@@ -3,10 +3,13 @@ package io.github.primelib.prometheus4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * HeadStats
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "chunkCount",
     "maxTime",
@@ -31,16 +37,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("HeadStats")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class HeadStats {
-
-    /**
-     * Constructs a validated implementation of {@link HeadStats}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public HeadStats(Consumer<HeadStats> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("chunkCount")
     protected Long chunkCount;
@@ -57,5 +53,32 @@ public class HeadStats {
     @JsonProperty("numSeries")
     protected Integer numSeries;
 
+    /**
+     * Constructs a validated instance of {@link HeadStats}.
+     *
+     * @param spec the specification to process
+     */
+    public HeadStats(Consumer<HeadStats> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link HeadStats}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #HeadStats(Consumer)} instead.
+     * @param chunkCount var.name
+     * @param maxTime var.name
+     * @param minTime var.name
+     * @param numLabelPairs var.name
+     * @param numSeries var.name
+     */
+    @ApiStatus.Internal
+    public HeadStats(Long chunkCount, Long maxTime, Long minTime, Long numLabelPairs, Integer numSeries) {
+        this.chunkCount = chunkCount;
+        this.maxTime = maxTime;
+        this.minTime = minTime;
+        this.numLabelPairs = numLabelPairs;
+        this.numSeries = numSeries;
+    }
 
 }

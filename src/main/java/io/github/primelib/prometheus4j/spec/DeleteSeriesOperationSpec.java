@@ -8,7 +8,11 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -20,9 +24,13 @@ import java.util.function.Consumer;
  * <p>
  * Deletes selected data
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class DeleteSeriesOperationSpec {
     /**
@@ -51,13 +59,31 @@ public class DeleteSeriesOperationSpec {
     private String end;
 
     /**
-     * Constructs a validated implementation of {@link DeleteSeriesOperationSpec}.
+     * Constructs a validated instance of {@link DeleteSeriesOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public DeleteSeriesOperationSpec(Consumer<DeleteSeriesOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link DeleteSeriesOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param match                Repeated label matcher argument that selects the series to delete. At least one match[] argument must be provided. 
+     * @param start                Start timestamp. Optional and defaults to minimum possible time.
+     * @param end                  End timestamp. Optional and defaults to maximum possible time.  Not mentioning both start and end times would clear all the data for the matched series in the database. 
+     */
+    @ApiStatus.Internal
+    public DeleteSeriesOperationSpec(List<String> match, String start, String end) {
+        this.match = match;
+        this.start = start;
+        this.end = end;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -70,5 +96,4 @@ public class DeleteSeriesOperationSpec {
     public void validate() {
         Objects.requireNonNull(match, "match is a required parameter!");
     }
-
 }

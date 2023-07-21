@@ -5,7 +5,11 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +21,13 @@ import java.util.function.Consumer;
  * <p>
  * Returns currently loaded rules
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadRulesOperationSpec {
     /**
@@ -29,13 +37,13 @@ public class ReadRulesOperationSpec {
     public static Boolean VALIDATION_ENABLED = true;
 
     /**
-     * Return only the alerting rules (e.g. "type=alert") or the recording rules (e.g. "type=record"). When the parameter is absent or empty, no filtering is done. 
+     * Return only the alerting rules (e.g. {@code }{@code type=alert}{@code }) or the recording rules (e.g. {@code }{@code type=record}{@code }). When the parameter is absent or empty, no filtering is done. 
      */
     @Nullable 
     private String type;
 
     /**
-     * Constructs a validated implementation of {@link ReadRulesOperationSpec}.
+     * Constructs a validated instance of {@link ReadRulesOperationSpec}.
      *
      * @param spec the specification to process
      */
@@ -47,11 +55,24 @@ public class ReadRulesOperationSpec {
     }
 
     /**
+     * Constructs a validated instance of {@link ReadRulesOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param type                 Return only the alerting rules (e.g. {@code }{@code type=alert}{@code }) or the recording rules (e.g. {@code }{@code type=record}{@code }). When the parameter is absent or empty, no filtering is done. 
+     */
+    @ApiStatus.Internal
+    public ReadRulesOperationSpec(String type) {
+        this.type = type;
+
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
      * Validates the Spec, will throw a exception if required parameters are missing
      *
      * @throws NullPointerException
      */
     public void validate() {
     }
-
 }

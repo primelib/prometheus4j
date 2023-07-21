@@ -8,7 +8,11 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -20,9 +24,13 @@ import java.util.function.Consumer;
  * <p>
  * Returns label values
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ReadLabelValuesOperationSpec {
     /**
@@ -56,13 +64,33 @@ public class ReadLabelValuesOperationSpec {
     private List<String> match;
 
     /**
-     * Constructs a validated implementation of {@link ReadLabelValuesOperationSpec}.
+     * Constructs a validated instance of {@link ReadLabelValuesOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public ReadLabelValuesOperationSpec(Consumer<ReadLabelValuesOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link ReadLabelValuesOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param labelName            Label name.
+     * @param start                Start timestamp.
+     * @param end                  End timestamp.
+     * @param match                Repeated series selector argument that selects the series from which to read the label values. 
+     */
+    @ApiStatus.Internal
+    public ReadLabelValuesOperationSpec(String labelName, String start, String end, List<String> match) {
+        this.labelName = labelName;
+        this.start = start;
+        this.end = end;
+        this.match = match;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -76,5 +104,4 @@ public class ReadLabelValuesOperationSpec {
         Objects.requireNonNull(labelName, "labelName is a required parameter!");
         Objects.requireNonNull(start, "start is a required parameter!");
     }
-
 }

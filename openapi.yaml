@@ -1113,7 +1113,7 @@ components:
         status:
           type: string
         data:
-          $ref: '#/components/schemas/LabelNames'
+          $ref: '#/components/schemas/MetadataMap'
       description: MetadataReadResponse read response
     PrometheusConfigReadResponse:
       type: object
@@ -1501,9 +1501,6 @@ components:
                     format: "sample_value"
     MetadataMap:
       type: object
-      properties:
-        metricName:
-          type: string
       additionalProperties:
         $ref: '#/components/schemas/Metadata'
       description: a (key, object) map. `metric name`is an example key

@@ -3,13 +3,15 @@ package io.github.primelib.prometheus4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -20,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Target
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "discoveredLabels",
     "labels",
@@ -40,20 +45,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Target {
 
     /**
-     * Constructs a validated implementation of {@link Target}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Target(Consumer<Target> spec) {
-        spec.accept(this);
-    }
-
-    /**
      * Labels before any processing.
      */
     @JsonProperty("discoveredLabels")
-    protected Map<String, List<String>> discoveredLabels = new HashMap<>();
+    protected Map<String, List<String>> discoveredLabels;
 
     /**
      * Labels is a sorted set of labels. Order has to be guaranteed upon instantiation.
@@ -85,5 +80,40 @@ public class Target {
     @JsonProperty("health")
     protected String health;
 
+    /**
+     * Constructs a validated instance of {@link Target}.
+     *
+     * @param spec the specification to process
+     */
+    public Target(Consumer<Target> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Target}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Target(Consumer)} instead.
+     * @param discoveredLabels Labels before any processing.
+     * @param labels Labels is a sorted set of labels. Order has to be guaranteed upon instantiation.
+     * @param scrapePool var.name
+     * @param scrapeURL var.name
+     * @param globalURL var.name
+     * @param lastError var.name
+     * @param lastScrape var.name
+     * @param lastScrapeDuration var.name
+     * @param health TargetHealth describes the health state of a target.
+     */
+    @ApiStatus.Internal
+    public Target(Map<String, List<String>> discoveredLabels, List<Label> labels, String scrapePool, String scrapeURL, String globalURL, String lastError, String lastScrape, Double lastScrapeDuration, String health) {
+        this.discoveredLabels = discoveredLabels;
+        this.labels = labels;
+        this.scrapePool = scrapePool;
+        this.scrapeURL = scrapeURL;
+        this.globalURL = globalURL;
+        this.lastError = lastError;
+        this.lastScrape = lastScrape;
+        this.lastScrapeDuration = lastScrapeDuration;
+        this.health = health;
+    }
 
 }

@@ -2,6 +2,7 @@ package io.github.primelib.prometheus4j;
 
 import java.util.Map;
 import javax.annotation.processing.Generated;
+import lombok.Builder;
 
 import io.github.primelib.prometheus4j.api.PrometheusHTTPApi;
 import io.github.primelib.prometheus4j.auth.AuthInterceptor;
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import feign.Feign;
 import feign.Logger;
@@ -21,6 +23,7 @@ import feign.jackson.JacksonEncoder;
 import feign.micrometer.MicrometerCapability;
 import feign.okhttp.OkHttpClient;
 import feign.slf4j.Slf4jLogger;
+import okhttp3.Credentials;
 
 import io.github.resilience4j.bulkhead.BulkheadRegistry;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
@@ -38,7 +41,8 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 
-
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.util.function.Consumer;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
@@ -51,6 +55,7 @@ public class PrometheusHTTPFactory {
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
             .propertyNamingStrategy(PropertyNamingStrategies.LOWER_CAMEL_CASE)
             .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
+            .addModule(new JavaTimeModule())
             .addModule(new BlackbirdModule())
             .build();
 
@@ -99,9 +104,22 @@ public class PrometheusHTTPFactory {
         TaggedCircuitBreakerMetrics.ofCircuitBreakerRegistry(circuitBreakerRegistry).bindTo(config.meterRegistry());
         TaggedRetryMetrics.ofRetryRegistry(retryRegistry).bindTo(config.meterRegistry());
 
+        // http client
+        okhttp3.OkHttpClient.Builder clientBuilder = new okhttp3.OkHttpClient.Builder();
+        if (config.proxy() != null && config.proxy().type() != Proxy.Type.DIRECT) {
+            clientBuilder.proxy(new Proxy(config.proxy().type(), new InetSocketAddress(config.proxy().host(), config.proxy().port())));
+            if (config.proxy().username() != null || config.proxy().password() != null) {
+                clientBuilder.proxyAuthenticator((route, response) -> {
+                    return response.request().newBuilder()
+                            .header("Proxy-Authorization", Credentials.basic(config.proxy().username(), new String(config.proxy().password())))
+                            .build();
+                });
+            }
+        }
+
         // builder
         return Resilience4jFeign.builder(decorators)
-                .client(new OkHttpClient())
+                .client(new OkHttpClient(clientBuilder.build()))
                 .encoder(new JacksonEncoder(MAPPER))
                 .decoder(new JacksonDecoder(MAPPER))
                 .logger(new Slf4jLogger())
