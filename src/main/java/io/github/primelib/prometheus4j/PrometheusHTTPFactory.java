@@ -5,7 +5,6 @@ import javax.annotation.processing.Generated;
 import lombok.Builder;
 
 import io.github.primelib.prometheus4j.api.PrometheusHTTPApi;
-import io.github.primelib.prometheus4j.auth.AuthInterceptor;
 
 import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -28,13 +27,15 @@ import okhttp3.Credentials;
 import io.github.resilience4j.bulkhead.BulkheadRegistry;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import io.github.resilience4j.feign.FeignDecorators;
-import io.github.resilience4j.feign.Resilience4jFeign;
 import io.github.resilience4j.micrometer.tagged.TaggedBulkheadMetrics;
 import io.github.resilience4j.micrometer.tagged.TaggedCircuitBreakerMetrics;
 import io.github.resilience4j.micrometer.tagged.TaggedRateLimiterMetrics;
 import io.github.resilience4j.micrometer.tagged.TaggedRetryMetrics;
 import io.github.resilience4j.ratelimiter.RateLimiterRegistry;
 import io.github.resilience4j.retry.RetryRegistry;
+
+import io.github.primelib.primecodegenlib.java.feign.common.interceptor.AuthInterceptor;
+import io.github.primelib.primecodegenlib.java.feign.resilience4j.Resilience4JCapability;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -118,13 +119,14 @@ public class PrometheusHTTPFactory {
         }
 
         // builder
-        return Resilience4jFeign.builder(decorators)
+        return Feign.builder()
                 .client(new OkHttpClient(clientBuilder.build()))
                 .encoder(new JacksonEncoder(MAPPER))
                 .decoder(new JacksonDecoder(MAPPER))
                 .logger(new Slf4jLogger())
                 .logLevel(Logger.Level.valueOf(config.logLevel().toUpperCase()))
                 .addCapability(new MicrometerCapability(config.meterRegistry()))
+                .addCapability(new Resilience4JCapability(decorators))
                 .requestInterceptor(new AuthInterceptor(config.auth()))
                 .target(config.api(), config.baseUrl());
     }

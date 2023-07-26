@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+import io.github.primelib.primecodegenlib.java.feign.common.api.AuthMethod;
+
 @Data
 @Accessors(fluent = true)
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
