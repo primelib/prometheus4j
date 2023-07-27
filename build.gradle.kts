@@ -69,8 +69,8 @@ dependencies {
     implementation("io.github.resilience4j:resilience4j-micrometer")
 
     // codegen libs
-    implementation("io.github.primelib.primecodegenlib.java:feign-common")
-    implementation("io.github.primelib.primecodegenlib.java:feign-resilience4j")
+    api("io.github.primelib.primecodegenlib.java:feign-common")
+    api("io.github.primelib.primecodegenlib.java:feign-resilience4j")
 
     // jackson
     implementation("com.fasterxml.jackson.core:jackson-databind")
@@ -78,7 +78,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-blackbird")
 
     // metrics
-    implementation("io.micrometer:micrometer-core:1.11.1")
+    api("io.micrometer:micrometer-core:1.11.1")
 
     // test
     testImplementation("org.slf4j:slf4j-simple:2.0.7")
