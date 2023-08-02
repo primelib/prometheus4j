@@ -5,6 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
+import lombok.EqualsAndHashCode;
 
 import io.github.primelib.prometheus4j.api.PrometheusHTTPApi;
 import io.github.primelib.prometheus4j.auth.BasicAuthSpec;
@@ -17,7 +18,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.composite.CompositeMeterRegistry;
 
 import io.github.primelib.primecodegenlib.java.feign.common.api.AuthMethod;
-import io.github.primelib.primecodegenlib.java.feign.common.config.ProxySpec;
+import io.github.primelib.primecodegenlib.java.feign.common.config.FeignModuleSpec;
 
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -26,10 +27,11 @@ import java.util.function.Consumer;
  * A specification to construct a {@link PrometheusHTTPApi} instance.
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Accessors(fluent = true)
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public final class PrometheusHTTPFactorySpec<T> {
+public final class PrometheusHTTPFactorySpec<T> extends FeignModuleSpec<PrometheusHTTPFactorySpec<T>> {
 
     /**
      * The name of the backend to use
@@ -54,15 +56,6 @@ public final class PrometheusHTTPFactorySpec<T> {
      */
     @Nullable
     private List<AuthMethod> auth = new ArrayList<>(5);
-
-    /**
-     * The proxy server to use, if applicable
-     * <p>
-     * Defaults to {@code null}.
-     * Set to {@code ProxySpec.detect()} to detect the proxy based on the os environment automatically.
-     */
-    @Nullable
-    private ProxySpec proxy = null;
 
     /**
      * MeterRegistry to use for metrics
@@ -105,12 +98,6 @@ public final class PrometheusHTTPFactorySpec<T> {
         Objects.requireNonNull(logLevel, "logLevel must not be null");
     }
 
-    public ProxySpec httpProxy(Consumer<ProxySpec> proxySpec) {
-        ProxySpec proxy = new ProxySpec(proxySpec);
-        proxy(proxy);
-        return proxy;
-    }
-
     public BasicAuthSpec basicAuth(Consumer<BasicAuthSpec> spec) {
         BasicAuthSpec method = new BasicAuthSpec(spec);
         auth.add(method);
@@ -121,7 +108,7 @@ public final class PrometheusHTTPFactorySpec<T> {
         backendName(spec.backendName());
         baseUrl(spec.baseUrl());
         auth(spec.auth());
-        proxy(spec.proxy());
+        proxy = spec.proxy();
         meterRegistry(spec.meterRegistry());
     }
 }

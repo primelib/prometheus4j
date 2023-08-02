@@ -48,7 +48,7 @@ dependencies {
     api(platform("io.github.openfeign:feign-bom:12.4"))
     api(platform("io.github.resilience4j:resilience4j-bom:2.1.0"))
     api(platform("com.fasterxml.jackson:jackson-bom:2.15.2"))
-    api(platform("io.github.primelib.primecodegenlib.java:bom:0.0.1"))
+    api(platform("io.github.primelib.primecodegenlib.java:bom:0.0.2"))
 
     // annotations
     implementation("org.jetbrains:annotations:24.0.1")
@@ -60,22 +60,12 @@ dependencies {
     implementation("io.github.openfeign:feign-okhttp")
     implementation("io.github.openfeign:feign-micrometer")
 
-    // resilience4J
-    implementation("io.github.resilience4j:resilience4j-feign")
-    implementation("io.github.resilience4j:resilience4j-bulkhead")
-    implementation("io.github.resilience4j:resilience4j-retry")
-    implementation("io.github.resilience4j:resilience4j-circuitbreaker")
-    implementation("io.github.resilience4j:resilience4j-ratelimiter")
-    implementation("io.github.resilience4j:resilience4j-micrometer")
-
     // codegen libs
     api("io.github.primelib.primecodegenlib.java:feign-common")
-    api("io.github.primelib.primecodegenlib.java:feign-resilience4j")
 
     // jackson
     implementation("com.fasterxml.jackson.core:jackson-databind")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-    implementation("com.fasterxml.jackson.module:jackson-module-blackbird")
 
     // metrics
     api("io.micrometer:micrometer-core:1.11.1")
