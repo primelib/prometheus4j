@@ -55,8 +55,8 @@ public class QueryDataResult {
      * Constructs a validated instance of {@link QueryDataResult}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QueryDataResult(Consumer)} instead.
-     * @param metric var.name
-     * @param value var.name
+     * @param metric metric
+     * @param value value
      */
     @ApiStatus.Internal
     public QueryDataResult(QueryDataResultMetric metric, List<QueryDataResultValueInner> value) {

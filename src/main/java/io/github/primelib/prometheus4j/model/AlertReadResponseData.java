@@ -51,7 +51,7 @@ public class AlertReadResponseData {
      * Constructs a validated instance of {@link AlertReadResponseData}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AlertReadResponseData(Consumer)} instead.
-     * @param alerts var.name
+     * @param alerts alerts
      */
     @ApiStatus.Internal
     public AlertReadResponseData(List<Alert> alerts) {

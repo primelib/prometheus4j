@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class QueryDataResultMetric {
 
     @JsonProperty("__name__")
-    protected String name;
+    protected String _name;
 
     @JsonProperty("job")
     protected String job;
@@ -58,13 +58,13 @@ public class QueryDataResultMetric {
      * Constructs a validated instance of {@link QueryDataResultMetric}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QueryDataResultMetric(Consumer)} instead.
-     * @param name var.name
-     * @param job var.name
-     * @param instance var.name
+     * @param _name _name
+     * @param job job
+     * @param instance instance
      */
     @ApiStatus.Internal
-    public QueryDataResultMetric(String name, String job, String instance) {
-        this.name = name;
+    public QueryDataResultMetric(String _name, String job, String instance) {
+        this._name = _name;
         this.job = job;
         this.instance = instance;
     }

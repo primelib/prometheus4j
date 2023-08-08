@@ -73,11 +73,11 @@ public class MetricMetadata {
      * Constructs a validated instance of {@link MetricMetadata}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MetricMetadata(Consumer)} instead.
-     * @param help var.name
-     * @param metric var.name
+     * @param help help
+     * @param metric metric
      * @param target Labels is a sorted set of labels. Order has to be guaranteed upon instantiation.
      * @param type MetricType represents metric type values.
-     * @param unit var.name
+     * @param unit unit
      */
     @ApiStatus.Internal
     public MetricMetadata(String help, String metric, List<Label> target, String type, String unit) {

@@ -50,7 +50,7 @@ public class PrometheusConfig {
      * Constructs a validated instance of {@link PrometheusConfig}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PrometheusConfig(Consumer)} instead.
-     * @param yaml var.name
+     * @param yaml yaml
      */
     @ApiStatus.Internal
     public PrometheusConfig(String yaml) {

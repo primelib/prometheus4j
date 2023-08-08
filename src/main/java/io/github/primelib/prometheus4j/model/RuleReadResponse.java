@@ -54,8 +54,8 @@ public class RuleReadResponse {
      * Constructs a validated instance of {@link RuleReadResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RuleReadResponse(Consumer)} instead.
-     * @param status var.name
-     * @param data var.name
+     * @param status status
+     * @param data data
      */
     @ApiStatus.Internal
     public RuleReadResponse(String status, RuleReadResponseData data) {

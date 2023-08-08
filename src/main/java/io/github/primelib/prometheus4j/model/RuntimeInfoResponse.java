@@ -54,8 +54,8 @@ public class RuntimeInfoResponse {
      * Constructs a validated instance of {@link RuntimeInfoResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RuntimeInfoResponse(Consumer)} instead.
-     * @param status var.name
-     * @param data var.name
+     * @param status status
+     * @param data data
      */
     @ApiStatus.Internal
     public RuntimeInfoResponse(String status, RuntimeInfo data) {

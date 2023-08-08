@@ -55,8 +55,8 @@ public class TargetDiscovery {
      * Constructs a validated instance of {@link TargetDiscovery}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TargetDiscovery(Consumer)} instead.
-     * @param activeTargets var.name
-     * @param droppedTargets var.name
+     * @param activeTargets activeTargets
+     * @param droppedTargets droppedTargets
      */
     @ApiStatus.Internal
     public TargetDiscovery(List<Target> activeTargets, List<DroppedTarget> droppedTargets) {

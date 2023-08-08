@@ -55,8 +55,8 @@ public class ResponseQueryRangeResult {
      * Constructs a validated instance of {@link ResponseQueryRangeResult}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ResponseQueryRangeResult(Consumer)} instead.
-     * @param metric var.name
-     * @param values var.name
+     * @param metric metric
+     * @param values values
      */
     @ApiStatus.Internal
     public ResponseQueryRangeResult(QueryDataResultMetric metric, List<QueryDataResultValueInner> values) {

@@ -54,8 +54,8 @@ public class TargetDiscoveryReadResponse {
      * Constructs a validated instance of {@link TargetDiscoveryReadResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TargetDiscoveryReadResponse(Consumer)} instead.
-     * @param status var.name
-     * @param data var.name
+     * @param status status
+     * @param data data
      */
     @ApiStatus.Internal
     public TargetDiscoveryReadResponse(String status, TargetDiscovery data) {

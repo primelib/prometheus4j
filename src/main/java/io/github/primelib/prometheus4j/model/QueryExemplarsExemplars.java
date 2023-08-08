@@ -58,9 +58,9 @@ public class QueryExemplarsExemplars {
      * Constructs a validated instance of {@link QueryExemplarsExemplars}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QueryExemplarsExemplars(Consumer)} instead.
-     * @param labels var.name
-     * @param values var.name
-     * @param timestamp var.name
+     * @param labels labels
+     * @param values values
+     * @param timestamp timestamp
      */
     @ApiStatus.Internal
     public QueryExemplarsExemplars(QueryExemplarsExemplarsLabels labels, String values, String timestamp) {

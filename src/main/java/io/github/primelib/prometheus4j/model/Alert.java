@@ -67,11 +67,11 @@ public class Alert {
      * Constructs a validated instance of {@link Alert}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Alert(Consumer)} instead.
-     * @param labels var.name
-     * @param annotations var.name
-     * @param state var.name
-     * @param activeAt var.name
-     * @param value var.name
+     * @param labels labels
+     * @param annotations annotations
+     * @param state state
+     * @param activeAt activeAt
+     * @param value value
      */
     @ApiStatus.Internal
     public Alert(Map<String, String> labels, Map<String, String> annotations, AlertState state, String activeAt, String value) {

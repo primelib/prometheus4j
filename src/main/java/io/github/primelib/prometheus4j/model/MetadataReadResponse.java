@@ -58,7 +58,7 @@ public class MetadataReadResponse {
      * Constructs a validated instance of {@link MetadataReadResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MetadataReadResponse(Consumer)} instead.
-     * @param status var.name
+     * @param status status
      * @param data a (key, object) map. {@code metric name}is an example key
      */
     @ApiStatus.Internal

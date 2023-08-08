@@ -58,7 +58,7 @@ public class LabelValuesReadResponse {
      * Constructs a validated instance of {@link LabelValuesReadResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LabelValuesReadResponse(Consumer)} instead.
-     * @param status var.name
+     * @param status status
      * @param data a list of string label values
      */
     @ApiStatus.Internal

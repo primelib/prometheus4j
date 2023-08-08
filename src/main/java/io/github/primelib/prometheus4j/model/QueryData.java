@@ -57,8 +57,8 @@ public class QueryData {
      * Constructs a validated instance of {@link QueryData}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QueryData(Consumer)} instead.
-     * @param result var.name
-     * @param resultType var.name
+     * @param result result
+     * @param resultType resultType
      */
     @ApiStatus.Internal
     public QueryData(QueryDataResult result, ResultTypeEnum resultType) {

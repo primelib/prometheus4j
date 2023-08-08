@@ -55,8 +55,8 @@ public class AlertManagerDiscovery {
      * Constructs a validated instance of {@link AlertManagerDiscovery}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AlertManagerDiscovery(Consumer)} instead.
-     * @param activeAlertmanagers var.name
-     * @param droppedAlertmanagers var.name
+     * @param activeAlertmanagers activeAlertmanagers
+     * @param droppedAlertmanagers droppedAlertmanagers
      */
     @ApiStatus.Internal
     public AlertManagerDiscovery(List<AlertmanagerTarget> activeAlertmanagers, List<AlertmanagerTarget> droppedAlertmanagers) {

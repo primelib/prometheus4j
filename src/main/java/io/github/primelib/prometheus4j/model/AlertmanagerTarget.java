@@ -50,7 +50,7 @@ public class AlertmanagerTarget {
      * Constructs a validated instance of {@link AlertmanagerTarget}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AlertmanagerTarget(Consumer)} instead.
-     * @param url var.name
+     * @param url url
      */
     @ApiStatus.Internal
     public AlertmanagerTarget(String url) {

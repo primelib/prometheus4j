@@ -86,16 +86,16 @@ public class RuntimeInfo {
      * Constructs a validated instance of {@link RuntimeInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RuntimeInfo(Consumer)} instead.
-     * @param CWD var.name
-     * @param GODEBUG var.name
-     * @param GOGC var.name
-     * @param GOMAXPROCS var.name
-     * @param corruptionCount var.name
-     * @param goroutineCount var.name
-     * @param lastConfigTime var.name
-     * @param reloadConfigSuccess var.name
-     * @param startTime var.name
-     * @param storageRetention var.name
+     * @param CWD CWD
+     * @param GODEBUG GODEBUG
+     * @param GOGC GOGC
+     * @param GOMAXPROCS GOMAXPROCS
+     * @param corruptionCount corruptionCount
+     * @param goroutineCount goroutineCount
+     * @param lastConfigTime lastConfigTime
+     * @param reloadConfigSuccess reloadConfigSuccess
+     * @param startTime startTime
+     * @param storageRetention storageRetention
      */
     @ApiStatus.Internal
     public RuntimeInfo(String CWD, String GODEBUG, String GOGC, Integer GOMAXPROCS, Long corruptionCount, Integer goroutineCount, String lastConfigTime, Boolean reloadConfigSuccess, String startTime, String storageRetention) {

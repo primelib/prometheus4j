@@ -54,8 +54,8 @@ public class ResponseQueryRange {
      * Constructs a validated instance of {@link ResponseQueryRange}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ResponseQueryRange(Consumer)} instead.
-     * @param resultType var.name
-     * @param result var.name
+     * @param resultType resultType
+     * @param result result
      */
     @ApiStatus.Internal
     public ResponseQueryRange(String resultType, ResponseQueryRangeResult result) {

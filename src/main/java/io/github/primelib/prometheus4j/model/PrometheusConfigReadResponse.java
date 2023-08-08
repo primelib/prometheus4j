@@ -54,8 +54,8 @@ public class PrometheusConfigReadResponse {
      * Constructs a validated instance of {@link PrometheusConfigReadResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PrometheusConfigReadResponse(Consumer)} instead.
-     * @param status var.name
-     * @param data var.name
+     * @param status status
+     * @param data data
      */
     @ApiStatus.Internal
     public PrometheusConfigReadResponse(String status, PrometheusConfig data) {

@@ -61,9 +61,9 @@ public class Metadata {
      * Constructs a validated instance of {@link Metadata}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Metadata(Consumer)} instead.
-     * @param help var.name
+     * @param help help
      * @param type MetricType represents metric type values.
-     * @param unit var.name
+     * @param unit unit
      */
     @ApiStatus.Internal
     public Metadata(String help, String type, String unit) {

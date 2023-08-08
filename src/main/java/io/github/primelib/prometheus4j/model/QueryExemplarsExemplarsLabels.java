@@ -50,7 +50,7 @@ public class QueryExemplarsExemplarsLabels {
      * Constructs a validated instance of {@link QueryExemplarsExemplarsLabels}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QueryExemplarsExemplarsLabels(Consumer)} instead.
-     * @param traceID var.name
+     * @param traceID traceID
      */
     @ApiStatus.Internal
     public QueryExemplarsExemplarsLabels(String traceID) {

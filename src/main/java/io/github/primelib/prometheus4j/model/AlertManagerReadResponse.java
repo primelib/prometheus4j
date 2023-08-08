@@ -54,8 +54,8 @@ public class AlertManagerReadResponse {
      * Constructs a validated instance of {@link AlertManagerReadResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AlertManagerReadResponse(Consumer)} instead.
-     * @param status var.name
-     * @param data var.name
+     * @param status status
+     * @param data data
      */
     @ApiStatus.Internal
     public AlertManagerReadResponse(String status, AlertManagerDiscovery data) {

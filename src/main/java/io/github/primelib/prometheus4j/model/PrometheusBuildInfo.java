@@ -70,12 +70,12 @@ public class PrometheusBuildInfo {
      * Constructs a validated instance of {@link PrometheusBuildInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PrometheusBuildInfo(Consumer)} instead.
-     * @param branch var.name
-     * @param buildDate var.name
-     * @param buildUser var.name
-     * @param goVersion var.name
-     * @param revision var.name
-     * @param version var.name
+     * @param branch branch
+     * @param buildDate buildDate
+     * @param buildUser buildUser
+     * @param goVersion goVersion
+     * @param revision revision
+     * @param version version
      */
     @ApiStatus.Internal
     public PrometheusBuildInfo(String branch, String buildDate, String buildUser, String goVersion, String revision, String version) {

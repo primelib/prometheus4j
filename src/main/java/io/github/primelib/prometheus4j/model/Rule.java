@@ -122,10 +122,10 @@ public class Rule {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Rule(Consumer)} instead.
      * @param name Rule name
      * @param query PromQL expression
-     * @param labels var.name
-     * @param annotations var.name
+     * @param labels labels
+     * @param annotations annotations
      * @param health Rule health
-     * @param state var.name
+     * @param state state
      * @param type Rule type
      * @param duration duration in seconds
      * @param alerts A list of active alerts

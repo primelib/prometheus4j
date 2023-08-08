@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class QueryExemplarsSeriesLabels {
 
     @JsonProperty("__name__")
-    protected String name;
+    protected String _name;
 
     @JsonProperty("job")
     protected String job;
@@ -62,14 +62,14 @@ public class QueryExemplarsSeriesLabels {
      * Constructs a validated instance of {@link QueryExemplarsSeriesLabels}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QueryExemplarsSeriesLabels(Consumer)} instead.
-     * @param name var.name
-     * @param job var.name
-     * @param instance var.name
-     * @param service var.name
+     * @param _name _name
+     * @param job job
+     * @param instance instance
+     * @param service service
      */
     @ApiStatus.Internal
-    public QueryExemplarsSeriesLabels(String name, String job, String instance, String service) {
-        this.name = name;
+    public QueryExemplarsSeriesLabels(String _name, String job, String instance, String service) {
+        this._name = _name;
         this.job = job;
         this.instance = instance;
         this.service = service;

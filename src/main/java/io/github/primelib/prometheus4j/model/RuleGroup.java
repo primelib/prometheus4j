@@ -80,11 +80,11 @@ public class RuleGroup {
      * Constructs a validated instance of {@link RuleGroup}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RuleGroup(Consumer)} instead.
-     * @param evaluationTime var.name
-     * @param _file var.name
+     * @param evaluationTime evaluationTime
+     * @param _file _file
      * @param interval Interval at which the rule group is evaluated.This is the number of seconds between evaluations.
      * @param lastEvaluation Last time the rule group was evaluated.
-     * @param name var.name
+     * @param name name
      * @param rules In order to preserve rule ordering, while exposing type (alerting or recording) specific properties, both alerting and recording rules are exposed in the same array.
      */
     @ApiStatus.Internal

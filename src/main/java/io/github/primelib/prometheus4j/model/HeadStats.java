@@ -66,11 +66,11 @@ public class HeadStats {
      * Constructs a validated instance of {@link HeadStats}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #HeadStats(Consumer)} instead.
-     * @param chunkCount var.name
-     * @param maxTime var.name
-     * @param minTime var.name
-     * @param numLabelPairs var.name
-     * @param numSeries var.name
+     * @param chunkCount chunkCount
+     * @param maxTime maxTime
+     * @param minTime minTime
+     * @param numLabelPairs numLabelPairs
+     * @param numSeries numSeries
      */
     @ApiStatus.Internal
     public HeadStats(Long chunkCount, Long maxTime, Long minTime, Long numLabelPairs, Integer numSeries) {

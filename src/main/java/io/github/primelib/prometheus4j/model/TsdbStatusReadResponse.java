@@ -54,8 +54,8 @@ public class TsdbStatusReadResponse {
      * Constructs a validated instance of {@link TsdbStatusReadResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TsdbStatusReadResponse(Consumer)} instead.
-     * @param status var.name
-     * @param data var.name
+     * @param status status
+     * @param data data
      */
     @ApiStatus.Internal
     public TsdbStatusReadResponse(String status, TsdbStatus data) {

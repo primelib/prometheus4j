@@ -54,8 +54,8 @@ public class Stat {
      * Constructs a validated instance of {@link Stat}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Stat(Consumer)} instead.
-     * @param name var.name
-     * @param value var.name
+     * @param name name
+     * @param value value
      */
     @ApiStatus.Internal
     public Stat(String name, Integer value) {

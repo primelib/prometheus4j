@@ -50,7 +50,7 @@ public class Snapshot {
      * Constructs a validated instance of {@link Snapshot}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Snapshot(Consumer)} instead.
-     * @param name var.name
+     * @param name name
      */
     @ApiStatus.Internal
     public Snapshot(String name) {

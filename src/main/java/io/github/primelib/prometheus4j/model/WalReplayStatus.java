@@ -58,9 +58,9 @@ public class WalReplayStatus {
      * Constructs a validated instance of {@link WalReplayStatus}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #WalReplayStatus(Consumer)} instead.
-     * @param current var.name
-     * @param max var.name
-     * @param min var.name
+     * @param current current
+     * @param max max
+     * @param min min
      */
     @ApiStatus.Internal
     public WalReplayStatus(Integer current, Integer max, Integer min) {

@@ -95,12 +95,12 @@ public class Target {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Target(Consumer)} instead.
      * @param discoveredLabels Labels before any processing.
      * @param labels Labels is a sorted set of labels. Order has to be guaranteed upon instantiation.
-     * @param scrapePool var.name
-     * @param scrapeURL var.name
-     * @param globalURL var.name
-     * @param lastError var.name
-     * @param lastScrape var.name
-     * @param lastScrapeDuration var.name
+     * @param scrapePool scrapePool
+     * @param scrapeURL scrapeURL
+     * @param globalURL globalURL
+     * @param lastError lastError
+     * @param lastScrape lastScrape
+     * @param lastScrapeDuration lastScrapeDuration
      * @param health TargetHealth describes the health state of a target.
      */
     @ApiStatus.Internal

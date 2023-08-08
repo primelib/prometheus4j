@@ -54,8 +54,8 @@ public class QueryExemplarsReadResponse {
      * Constructs a validated instance of {@link QueryExemplarsReadResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QueryExemplarsReadResponse(Consumer)} instead.
-     * @param status var.name
-     * @param data var.name
+     * @param status status
+     * @param data data
      */
     @ApiStatus.Internal
     public QueryExemplarsReadResponse(String status, QueryExemplars data) {

@@ -54,8 +54,8 @@ public class Label {
      * Constructs a validated instance of {@link Label}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Label(Consumer)} instead.
-     * @param name var.name
-     * @param value var.name
+     * @param name name
+     * @param value value
      */
     @ApiStatus.Internal
     public Label(String name, String value) {

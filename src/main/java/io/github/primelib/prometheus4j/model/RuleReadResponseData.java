@@ -51,7 +51,7 @@ public class RuleReadResponseData {
      * Constructs a validated instance of {@link RuleReadResponseData}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RuleReadResponseData(Consumer)} instead.
-     * @param groups var.name
+     * @param groups groups
      */
     @ApiStatus.Internal
     public RuleReadResponseData(List<RuleGroup> groups) {

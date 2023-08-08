@@ -54,8 +54,8 @@ public class QueryExemplars {
      * Constructs a validated instance of {@link QueryExemplars}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QueryExemplars(Consumer)} instead.
-     * @param seriesLabels var.name
-     * @param exemplars var.name
+     * @param seriesLabels seriesLabels
+     * @param exemplars exemplars
      */
     @ApiStatus.Internal
     public QueryExemplars(QueryExemplarsSeriesLabels seriesLabels, QueryExemplarsExemplars exemplars) {

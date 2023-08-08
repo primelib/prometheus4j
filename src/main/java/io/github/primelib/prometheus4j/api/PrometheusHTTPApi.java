@@ -50,11 +50,11 @@ public interface PrometheusHTTPApi {
      *
      * @param skipHead             Skip data present in the head block. Optional.  (optional)
      */
-    @RequestLine("POST /admin/tsdb/snapshot?skip_head={skip_head}")
+    @RequestLine("POST /admin/tsdb/snapshot?skip_head={skipHead}")
     @Headers({
         "Accept: application/json"
     })
-    SnapshotCreateResponse createSnapshot(@Param("skip_head") @Nullable Boolean skipHead);
+    SnapshotCreateResponse createSnapshot(@Param("skipHead") @Nullable Boolean skipHead);
 
     /**
      * Deletes selected data
@@ -180,11 +180,11 @@ public interface PrometheusHTTPApi {
      * @param end                  End timestamp. (optional)
      * @param match                Repeated series selector argument that selects the series from which to read the label values.  (optional)
      */
-    @RequestLine("GET /label/{label_name}/values?start={start}&end={end}&match={match}")
+    @RequestLine("GET /label/{labelName}/values?start={start}&end={end}&match={match}")
     @Headers({
         "Accept: application/json"
     })
-    LabelValuesReadResponse readLabelValues(@Param("label_name") @NotNull String labelName, @Param("start") @NotNull String start, @Param("end") @Nullable String end, @Param("match") @Nullable List<String> match);
+    LabelValuesReadResponse readLabelValues(@Param("labelName") @NotNull String labelName, @Param("start") @NotNull String start, @Param("end") @Nullable String end, @Param("match") @Nullable List<String> match);
 
     /**
      * Returns list of Exemplars
@@ -339,12 +339,12 @@ public interface PrometheusHTTPApi {
      * @param metric               A metric name to retrieve metadata for. All metric metadata is retrieved if left empty.  (optional)
      * @param limit                Maximum number of targets to match.  (optional)
      */
-    @RequestLine("GET /targets/metadata?match_target={match_target}&metric={metric}&limit={limit}")
+    @RequestLine("GET /targets/metadata?match_target={matchTarget}&metric={metric}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
     @ApiStatus.Experimental
-    List<MetricMetadata> readTargetMetadata(@Param("match_target") @Nullable String matchTarget, @Param("metric") @Nullable String metric, @Param("limit") @Nullable Integer limit);
+    List<MetricMetadata> readTargetMetadata(@Param("matchTarget") @Nullable String matchTarget, @Param("metric") @Nullable String metric, @Param("limit") @Nullable Integer limit);
 
     /**
      * Returns current target discovery.

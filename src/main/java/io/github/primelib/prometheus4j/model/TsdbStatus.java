@@ -79,7 +79,7 @@ public class TsdbStatus {
      * Constructs a validated instance of {@link TsdbStatus}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TsdbStatus(Consumer)} instead.
-     * @param headStats var.name
+     * @param headStats headStats
      * @param labelValueCountByLabelName This will provide a list of the label names and their value count.
      * @param memoryInBytesByLabelName This will provide a list of the label names and memory used in bytes. Memory usage is calculated by adding the length of all values for a given label name.
      * @param seriesCountByLabelValuePair This will provide a list of label value pairs and their series count.
