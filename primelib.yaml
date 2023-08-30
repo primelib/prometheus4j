@@ -1,0 +1,4 @@
+modules:
+  - name: prometheus-rest
+    dir: .
+    spec_file: openapi.yaml
