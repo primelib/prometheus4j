@@ -45,8 +45,7 @@ gradle.properties
 .dist
 .tmp
 
-# generator and temporary spec files
+# openapi generator files
 .openapi-generator/
+!.openapi-generator/FILES
 codegen-test.sh
-spec/*.json
-spec/*.yaml
