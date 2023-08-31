@@ -1,6 +1,5 @@
 .gitignore
 build.gradle.kts
-gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 renovate.json
@@ -42,7 +41,6 @@ src/main/java/io/github/primelib/prometheus4j/model/QueryExemplarsExemplars.java
 src/main/java/io/github/primelib/prometheus4j/model/QueryExemplarsExemplarsLabels.java
 src/main/java/io/github/primelib/prometheus4j/model/QueryExemplarsReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/QueryExemplarsSeriesLabels.java
-src/main/java/io/github/primelib/prometheus4j/model/ResponseQueryRange.java
 src/main/java/io/github/primelib/prometheus4j/model/ResponseQueryRangeResult.java
 src/main/java/io/github/primelib/prometheus4j/model/Rule.java
 src/main/java/io/github/primelib/prometheus4j/model/RuleGroup.java
@@ -56,18 +54,17 @@ src/main/java/io/github/primelib/prometheus4j/model/Stat.java
 src/main/java/io/github/primelib/prometheus4j/model/Target.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetDiscovery.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetDiscoveryReadResponse.java
-src/main/java/io/github/primelib/prometheus4j/model/TargetHealth.java
 src/main/java/io/github/primelib/prometheus4j/model/TsdbStatus.java
 src/main/java/io/github/primelib/prometheus4j/model/TsdbStatusReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatus.java
+src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatusReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/spec/CreateSnapshotOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/DeleteSeriesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/EvaluateQueryInstantOperationSpec.java
-src/main/java/io/github/primelib/prometheus4j/spec/EvaluateQueryRangeOperationSpec.java
+src/main/java/io/github/primelib/prometheus4j/spec/MetricMetadataReadResponseOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadLabelNamesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadLabelValuesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadQueryExemplarsOperationSpec.java
-src/main/java/io/github/primelib/prometheus4j/spec/ReadRulesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadSeriesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadTargetMetadataOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadTargetsOperationSpec.java
