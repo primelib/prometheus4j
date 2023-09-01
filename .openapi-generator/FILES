@@ -1,9 +1,8 @@
 .gitignore
 build.gradle.kts
+gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
-gradlew.bat
-renovate.json
 settings.gradle.kts
 src/main/java/io/github/primelib/prometheus4j/PrometheusHTTPFactory.java
 src/main/java/io/github/primelib/prometheus4j/PrometheusHTTPFactorySpec.java
@@ -60,10 +59,12 @@ src/main/java/io/github/primelib/prometheus4j/model/TargetHealth.java
 src/main/java/io/github/primelib/prometheus4j/model/TsdbStatus.java
 src/main/java/io/github/primelib/prometheus4j/model/TsdbStatusReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatus.java
+src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatusReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/spec/CreateSnapshotOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/DeleteSeriesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/EvaluateQueryInstantOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/EvaluateQueryRangeOperationSpec.java
+src/main/java/io/github/primelib/prometheus4j/spec/MetricMetadataReadResponseOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadLabelNamesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadLabelValuesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadQueryExemplarsOperationSpec.java

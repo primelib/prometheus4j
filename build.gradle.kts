@@ -11,7 +11,7 @@ projectConfiguration {
     artifactGroupId.set("io.github.primelib")
     artifactId.set("prometheus4j")
     artifactDisplayName.set("prometheus4j")
-    artifactDescription.set("A Java Wrapper for the Prometheus REST API")
+    artifactDescription.set("Java Client for the Prometheus REST APIs.")
 
     pom = { pom ->
         pom.url.set("https://github.com/primelib/prometheus4j")
@@ -30,9 +30,9 @@ projectConfiguration {
         }
         pom.licenses {
             license {
-                name.set("MIT")
+                name.set("MIT License")
                 distribution.set("repo")
-                url.set("https://github.com/primelib/prometheus4j/blob/main/LICENSE")
+                url.set("https://raw.githubusercontent.com/primelib/prometheus4j/main/LICENSE")
             }
         }
         pom.scm {
