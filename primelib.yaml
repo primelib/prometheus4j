@@ -2,3 +2,15 @@ modules:
   - name: prometheus-rest
     dir: .
     spec_file: openapi.yaml
+    config:
+      generatorName: prime-client-java-feign
+      invokerPackage: io.github.primelib.prometheus4j
+      apiPackage: io.github.primelib.prometheus4j.api
+      modelPackage: io.github.primelib.prometheus4j.model
+      enablePostProcessFile: true
+      additionalProperties:
+        projectArtifactGroupId: io.github.primelib
+        projectArtifactId: prometheus4j
+        projectMaintainerId: PhilippHeuer
+        projectMaintainerName: Philipp Heuer
+        projectMaintainerEMail: git@philippheuer.me
