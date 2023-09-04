@@ -3,6 +3,8 @@ build.gradle.kts
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
+gradlew.bat
+renovate.json
 settings.gradle.kts
 src/main/java/io/github/primelib/prometheus4j/PrometheusHTTPFactory.java
 src/main/java/io/github/primelib/prometheus4j/PrometheusHTTPFactorySpec.java
@@ -22,7 +24,6 @@ src/main/java/io/github/primelib/prometheus4j/model/DroppedTarget.java
 src/main/java/io/github/primelib/prometheus4j/model/HeadStats.java
 src/main/java/io/github/primelib/prometheus4j/model/Label.java
 src/main/java/io/github/primelib/prometheus4j/model/LabelNamesReadResponse.java
-src/main/java/io/github/primelib/prometheus4j/model/LabelValuesReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/Metadata.java
 src/main/java/io/github/primelib/prometheus4j/model/MetadataReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/MetricMetadata.java
@@ -67,7 +68,6 @@ src/main/java/io/github/primelib/prometheus4j/spec/EvaluateQueryRangeOperationSp
 src/main/java/io/github/primelib/prometheus4j/spec/MetricMetadataReadResponseOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadLabelNamesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadLabelValuesOperationSpec.java
-src/main/java/io/github/primelib/prometheus4j/spec/ReadQueryExemplarsOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadRulesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadSeriesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadTargetMetadataOperationSpec.java
