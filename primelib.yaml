@@ -1,7 +1,7 @@
+release: true
 modules:
-  - name: prometheus-rest
-    dir: .
-    spec_file: openapi.yaml
+  - spec_file: openapi.yaml
+    spec_format: openapi
     config:
       generatorName: prime-client-java-feign
       invokerPackage: io.github.primelib.prometheus4j
