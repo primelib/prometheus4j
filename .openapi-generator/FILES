@@ -6,7 +6,6 @@ gradlew
 gradlew.bat
 renovate.json
 settings.gradle.kts
-src/main/java/io/github/primelib/prometheus4j/PrometheusHTTPFactory.java
 src/main/java/io/github/primelib/prometheus4j/PrometheusHTTPFactorySpec.java
 src/main/java/io/github/primelib/prometheus4j/api/PrometheusHTTPApi.java
 src/main/java/io/github/primelib/prometheus4j/api/PrometheusHTTPAsyncApi.java
@@ -18,6 +17,7 @@ src/main/java/io/github/primelib/prometheus4j/model/AlertManagerDiscovery.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertManagerReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertReadResponseData.java
+src/main/java/io/github/primelib/prometheus4j/model/AlertState.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertmanagerTarget.java
 src/main/java/io/github/primelib/prometheus4j/model/DroppedTarget.java
 src/main/java/io/github/primelib/prometheus4j/model/HeadStats.java
@@ -57,11 +57,11 @@ src/main/java/io/github/primelib/prometheus4j/model/Target.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetDiscovery.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetDiscoveryReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetHealth.java
+src/main/java/io/github/primelib/prometheus4j/model/TsdbStatus.java
 src/main/java/io/github/primelib/prometheus4j/model/TsdbStatusReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatus.java
 src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatusReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/spec/CreateSnapshotOperationSpec.java
-src/main/java/io/github/primelib/prometheus4j/spec/DeleteSeriesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/EvaluateQueryInstantOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/EvaluateQueryRangeOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/MetricMetadataReadResponseOperationSpec.java
