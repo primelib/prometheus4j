@@ -1,6 +1,6 @@
 plugins {
     `java-library`
-    id("me.philippheuer.configuration") version "0.10.7"
+    id("me.philippheuer.configuration") version "0.10.8"
 }
 
 val version: String = properties["version"] as? String ?: "0.0.0"
@@ -45,13 +45,13 @@ projectConfiguration {
 
 dependencies {
     // bom
-    api(platform("io.github.openfeign:feign-bom:12.5"))
+    api(platform("io.github.openfeign:feign-bom:13.1"))
     api(platform("io.github.resilience4j:resilience4j-bom:2.1.0"))
-    api(platform("com.fasterxml.jackson:jackson-bom:2.15.2"))
+    api(platform("com.fasterxml.jackson:jackson-bom:2.15.3"))
     api(platform("io.github.primelib.primecodegenlib.java:bom:0.0.2"))
 
     // annotations
-    implementation("org.jetbrains:annotations:24.0.1")
+    implementation("org.jetbrains:annotations:24.1.0")
 
     // feign
     implementation("io.github.openfeign:feign-core")
@@ -68,8 +68,8 @@ dependencies {
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     // metrics
-    api("io.micrometer:micrometer-core:1.11.1")
+    api("io.micrometer:micrometer-core:1.12.0")
 
     // test
-    testImplementation("org.slf4j:slf4j-simple:2.0.7")
+    testImplementation("org.slf4j:slf4j-simple:2.0.9")
 }
