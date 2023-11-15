@@ -18,6 +18,7 @@ src/main/java/io/github/primelib/prometheus4j/model/AlertManagerDiscovery.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertManagerReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertReadResponseData.java
+src/main/java/io/github/primelib/prometheus4j/model/AlertState.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertmanagerTarget.java
 src/main/java/io/github/primelib/prometheus4j/model/DroppedTarget.java
 src/main/java/io/github/primelib/prometheus4j/model/HeadStats.java
@@ -33,7 +34,6 @@ src/main/java/io/github/primelib/prometheus4j/model/PrometheusBuildInfoReadRespo
 src/main/java/io/github/primelib/prometheus4j/model/PrometheusConfig.java
 src/main/java/io/github/primelib/prometheus4j/model/PrometheusConfigReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/QueryData.java
-src/main/java/io/github/primelib/prometheus4j/model/QueryDataReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/QueryDataResult.java
 src/main/java/io/github/primelib/prometheus4j/model/QueryDataResultMetric.java
 src/main/java/io/github/primelib/prometheus4j/model/QueryDataResultValueInner.java
@@ -57,8 +57,8 @@ src/main/java/io/github/primelib/prometheus4j/model/Target.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetDiscovery.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetDiscoveryReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetHealth.java
+src/main/java/io/github/primelib/prometheus4j/model/TsdbStatus.java
 src/main/java/io/github/primelib/prometheus4j/model/TsdbStatusReadResponse.java
-src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatus.java
 src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatusReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/spec/CreateSnapshotOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/DeleteSeriesOperationSpec.java
