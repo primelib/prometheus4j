@@ -46,8 +46,8 @@ projectConfiguration {
 dependencies {
     // bom
     api(platform("io.github.openfeign:feign-bom:13.1"))
-    api(platform("io.github.resilience4j:resilience4j-bom:2.1.0"))
-    api(platform("com.fasterxml.jackson:jackson-bom:2.15.3"))
+    api(platform("io.github.resilience4j:resilience4j-bom:2.2.0"))
+    api(platform("com.fasterxml.jackson:jackson-bom:2.16.1"))
     api(platform("io.github.primelib.primecodegenlib.java:bom:0.0.2"))
 
     // annotations
@@ -68,8 +68,8 @@ dependencies {
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     // metrics
-    api("io.micrometer:micrometer-core:1.12.0")
+    api("io.micrometer:micrometer-core:1.12.2")
 
     // test
-    testImplementation("org.slf4j:slf4j-simple:2.0.9")
+    testImplementation("org.slf4j:slf4j-simple:2.0.11")
 }
