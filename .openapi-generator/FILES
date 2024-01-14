@@ -1,4 +1,3 @@
-.gitignore
 build.gradle.kts
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -18,6 +17,7 @@ src/main/java/io/github/primelib/prometheus4j/model/AlertManagerDiscovery.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertManagerReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertReadResponseData.java
+src/main/java/io/github/primelib/prometheus4j/model/AlertState.java
 src/main/java/io/github/primelib/prometheus4j/model/AlertmanagerTarget.java
 src/main/java/io/github/primelib/prometheus4j/model/DroppedTarget.java
 src/main/java/io/github/primelib/prometheus4j/model/HeadStats.java
@@ -28,7 +28,6 @@ src/main/java/io/github/primelib/prometheus4j/model/Metadata.java
 src/main/java/io/github/primelib/prometheus4j/model/MetadataReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/MetricMetadata.java
 src/main/java/io/github/primelib/prometheus4j/model/MetricType.java
-src/main/java/io/github/primelib/prometheus4j/model/PrometheusBuildInfo.java
 src/main/java/io/github/primelib/prometheus4j/model/PrometheusBuildInfoReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/PrometheusConfig.java
 src/main/java/io/github/primelib/prometheus4j/model/PrometheusConfigReadResponse.java
@@ -57,6 +56,7 @@ src/main/java/io/github/primelib/prometheus4j/model/Target.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetDiscovery.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetDiscoveryReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/TargetHealth.java
+src/main/java/io/github/primelib/prometheus4j/model/TsdbStatus.java
 src/main/java/io/github/primelib/prometheus4j/model/TsdbStatusReadResponse.java
 src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatus.java
 src/main/java/io/github/primelib/prometheus4j/model/WalReplayStatusReadResponse.java
@@ -67,8 +67,6 @@ src/main/java/io/github/primelib/prometheus4j/spec/EvaluateQueryRangeOperationSp
 src/main/java/io/github/primelib/prometheus4j/spec/MetricMetadataReadResponseOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadLabelNamesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadLabelValuesOperationSpec.java
-src/main/java/io/github/primelib/prometheus4j/spec/ReadQueryExemplarsOperationSpec.java
-src/main/java/io/github/primelib/prometheus4j/spec/ReadRulesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadSeriesOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadTargetMetadataOperationSpec.java
 src/main/java/io/github/primelib/prometheus4j/spec/ReadTargetsOperationSpec.java
