@@ -45,7 +45,7 @@ projectConfiguration {
 
 dependencies {
     // bom
-    api(platform("io.github.openfeign:feign-bom:13.1"))
+    api(platform("io.github.openfeign:feign-bom:13.2"))
     api(platform("io.github.resilience4j:resilience4j-bom:2.2.0"))
     api(platform("com.fasterxml.jackson:jackson-bom:2.16.1"))
     api(platform("io.github.primelib.primecodegenlib.java:bom:0.0.2"))
